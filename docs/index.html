@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to ramtools’s Documentation! &#8212; ramtools 0.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="_static/pydoctheme.css?2021.11.1" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to ramtools’s Documentation!</a></li>
+<li><a class="reference internal" href="#overview-on-how-to-use-this-module">Overview on How to Use this Module</a></li>
+<li><a class="reference internal" href="#setup-procedure">Setup procedure</a></li>
+<li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
+<li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
+<li><a class="reference internal" href="#ramtools-main">ramtools main</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
+<li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
+<li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="#">ramtools 0.1 documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to ramtools’s Documentation!</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-ramtools-s-documentation">
+<h1>Welcome to ramtools’s Documentation!<a class="headerlink" href="#welcome-to-ramtools-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This is a Python tool based on YT to post process simulation data from RAMSES-RT.</p>
+</div>
+<div class="section" id="overview-on-how-to-use-this-module">
+<h1>Overview on How to Use this Module<a class="headerlink" href="#overview-on-how-to-use-this-module" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Install required packages (yt)</p></li>
+<li><p>Either clone this repository and install it via <cite>pip install -e .</cite> or install it from PyPi via <cite>pip install ramtools</cite> (I will publish it to PyPi later)</p></li>
+</ol>
+</div>
+<div class="section" id="setup-procedure">
+<h1>Setup procedure<a class="headerlink" href="#setup-procedure" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="features-of-ramtools">
+<h1>Features of ramtools<a class="headerlink" href="#features-of-ramtools" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Simply the process of analysing RAMSES data using YT</p></li>
+<li><p>Make sliceplot/projectplot extremely fast by storing intermediate data at first run and reuse it in subsequent runs</p></li>
+</ol>
+</div>
+<div class="section" id="documentation-for-the-code">
+<h1>Documentation for the Code<a class="headerlink" href="#documentation-for-the-code" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="ramtools-main">
+<h1>ramtools main<a class="headerlink" href="#ramtools-main" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="module-ramtools.ramses">
+<span id="ramtools-ramses"></span><h1>ramtools ramses<a class="headerlink" href="#module-ramtools.ramses" title="Permalink to this headline">¶</a></h1>
+<p>The core of ramtools</p>
+<p>&#64;author: ChongChong He</p>
+<dl class="py exception">
+<dt id="ramtools.ramses.NoSinkParticle">
+<em class="property">exception </em><code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">NoSinkParticle</code><a class="headerlink" href="#ramtools.ramses.NoSinkParticle" title="Permalink to this definition">¶</a></dt>
+<dd><p>exception: no sink particle found in an output or a .csv file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="ramtools.ramses.Ramses">
+<em class="property">class </em><code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">Ramses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_use_jobid</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the core of ramtools. Most of the times, start using this
+moduel by using this class</p>
+<p>Examples:
+&gt;&gt;&gt; ram = Ramse(“../jobs/Job2”)
+&gt;&gt;&gt; par = ram.get_sink_particles(1)
+&gt;&gt;&gt; mass = par[:, 0]
+&gt;&gt;&gt; print(“Total mass =”, mass.sum())</p>
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.find_formation_pos_from_movie">
+<code class="sig-name descname">find_formation_pos_from_movie</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sinkid</span></em>, <em class="sig-param"><span class="n">msg</span><span class="o">=</span><span class="default_value">'off'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.find_formation_pos_from_movie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the formation location of the sink particles with given sinkid.
+This is done by finding the sink_*.txt file where the sink first form
+and stops accreting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sinkid</strong> – integer (starting from 1)</p></li>
+<li><p><strong>msg</strong> (<em>bool</em><em> or </em><em>string</em>) – print message if msg is True or ‘on’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(n by 3 array) position of sink particle at formation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pos</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.get_sink_info_from_movie1">
+<code class="sig-name descname">get_sink_info_from_movie1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sinkid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_info_from_movie1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of time and a list of sink masses</p>
+<dl class="simple">
+<dt>Args</dt><dd><p>sinkid: interger, starting from 0</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>Return a dictionary containing the following keys ‘out’, ‘t’, ‘m’, ‘x’,</em></p></li>
+<li><p><em>’y’, ‘z’, ‘vx’, ‘vy’, ‘vz’. All in code units.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.get_sink_masses">
+<code class="sig-name descname">get_sink_masses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputID</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_masses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get sink masses in M_sun of one output (not shifted)
+Replacing get_sink_mass</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>sink mass</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>1-D Array</p>
+</dd>
+</dl>
+<blockquote>
+<div><p>NoSinkParticle
+FileNotFoundError</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.get_sink_particles">
+<code class="sig-name descname">get_sink_particles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a (n, 7) array of sink parameters, where n is the number of
+particles and the 7 columns are: [m, x, y, z, vx, vy, vx], all in code
+units</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>outputID</strong> (<em>int</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>particles parameters</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>particles (n by 7 array)</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – </p></li>
+<li><p><a class="reference internal" href="#ramtools.ramses.NoSinkParticle" title="ramtools.ramses.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.get_sink_positions">
+<code class="sig-name descname">get_sink_positions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read n by 3 array of sink particle positions, where n is the number of
+particles: [x, y, z], all in code units (~ pc)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>An array with ndim=2</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>- FileNotFoundError</strong> – </p></li>
+<li><p><strong>- NoSinkParticle</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.get_time">
+<code class="sig-name descname">get_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputID</span></em>, <em class="sig-param"><span class="n">readinfo</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the time in Myr (not substracting t_relax) of data_id.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.overplot_sink">
+<code class="sig-name descname">overplot_sink</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">plot_args</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.overplot_sink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Over plot sink particles (as green cross) on top of a YT
+slice/project plot</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.overplot_sink_with_id">
+<code class="sig-name descname">overplot_sink_with_id</code><span class="sig-paren">(</span><em class="sig-param">plot</em>, <em class="sig-param">out</em>, <em class="sig-param">center</em>, <em class="sig-param">radius</em>, <em class="sig-param">is_id=True</em>, <em class="sig-param">colors=&lt;matplotlib.colors.LinearSegmentedColormap object&gt;</em>, <em class="sig-param">withedge=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.overplot_sink_with_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot</strong> (<em>yt plot</em>) – </p></li>
+<li><p><strong>out</strong> (<em>int</em>) – </p></li>
+<li><p><strong>center</strong> (<em>tuple</em><em> or </em><em>list</em>) – the center of the plot in boxlen units</p></li>
+<li><p><strong>radius</strong> (<em>double</em>) – radius in boxlen units</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="ramtools.ramses.RamsesJob">
+<em class="property">class </em><code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">RamsesJob</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.RamsesJob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-ramtools.utilities">
+<span id="ramtools-utilities"></span><h1>ramtools utilities<a class="headerlink" href="#module-ramtools.utilities" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="ramtools.utilities.get_sink_info_from_movie1">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_sink_info_from_movie1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">movie_dir</span></em>, <em class="sig-param"><span class="n">sinkid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_sink_info_from_movie1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of time and a list of sink masses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sinkid</strong> (<em>interger</em><em>, </em><em>starting from 0</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Return a dictionary containing the following keys ‘out’, ‘t’, ‘m’, ‘x’, ‘y’, ‘z’, ‘vx’, ‘vy’, ‘vz’. All in code units.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.utilities.get_times_from_movie1">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_times_from_movie1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">movie_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_times_from_movie1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary: {100: 0.012, 101: 0.013, …}</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.utilities.get_unit_B">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_unit_B</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_unit_B" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the unit of B field strength</p>
+<p>1 Gauss = sqrt(g / cm) / s and u_B = B^2 / 8 pi</p>
+<p>Return: the unit of B in cgs units</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.utilities.mass_to_temp">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">mass_to_temp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.mass_to_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>input: mass (M_sun); output: T (K)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.utilities.my_yt_load">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">my_yt_load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">job_path</span></em>, <em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.my_yt_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quick load a job to yt with the correct FIELDS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>job_path</strong> (<em>str</em>) – path to a job directory</p></li>
+<li><p><strong>out</strong> (<em>int</em>) – the output you want to load</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ramtools.units">
+<span id="ramtools-units"></span><h1>ramtools units<a class="headerlink" href="#module-ramtools.units" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>Define the following constants in cgs units:</dt><dd><ul class="simple">
+<li><p>all constants in con_list</p></li>
+<li><p>all constants in units_list</p></li>
+<li><p>m_H</p></li>
+</ul>
+</dd>
+</dl>
+<p>&#64;author: chongchonghe</p>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to ramtools’s Documentation!</a></li>
+<li><a class="reference internal" href="#overview-on-how-to-use-this-module">Overview on How to Use this Module</a></li>
+<li><a class="reference internal" href="#setup-procedure">Setup procedure</a></li>
+<li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
+<li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
+<li><a class="reference internal" href="#ramtools-main">ramtools main</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
+<li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
+<li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="#">ramtools 0.1 documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to ramtools’s Documentation!</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; Copyright 2021, Chong-Chong He.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+
+  </body>
+</html>
