@@ -3,46 +3,51 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+****************************************
 Welcome to ramtools's Documentation!
-====================================
+****************************************
 
-This is a Python tool based on YT to post process simulation data from RAMSES-RT.
+`ramtools` is a comvenient and fast Python module based on YT that post process simulation data from RAMSES-RT.
+
+Author: Chong-Chong He (che1234 @ umd.edu)
 
 Overview on How to Use this Module
 ==================================
 1. Install required packages (yt)
-2. Either clone this repository and install it via `pip install -e .` or install it from PyPi via `pip install ramtools` (I will publish it to PyPi later)
+2. Either clone this repository and install it via :code:`pip
+   install -e .` or install it from PyPi via :code:`pip install
+   ramtools` (to be published on PyPi, check back later)
 
 Setup procedure
 ==================================
 
+...
+
 Features of ramtools
 ==================================
-1. Simply the process of analysing RAMSES data using YT
-2. Make sliceplot/projectplot extremely fast by storing intermediate data at first run and reuse it in subsequent runs
+1. Simplify the process of analysing RAMSES data with plenty of highly functional tools
+2. Make sliceplot/projectplot extremely fast by storing intermediate
+   data at first run and reuse it in subsequent runs
+3. ...
 
-Documentation for the Code
-==================================
+****************************************
+Documentation for ramtools
+****************************************
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-ramtools main
-==================================
-.. automodule:: app
-   :members:
-
-ramtools ramses
+ramses
 ==================================
 .. automodule:: ramtools.ramses
    :members:
 
-ramtools utilities
+utilities
 ==================================
 .. automodule:: ramtools.utilities
    :members:
 
-ramtools units
+units
 ==================================
 .. automodule:: ramtools.units
    :members:
