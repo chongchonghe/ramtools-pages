@@ -49,19 +49,15 @@
             <div class="language_switcher_placeholder"></div>
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to ramtools’s Documentation!</a><ul>
+<li><a class="reference internal" href="#">Welcome to ramtools’s Documentation!</a></li>
 <li><a class="reference internal" href="#overview-on-how-to-use-this-module">Overview on How to Use this Module</a></li>
 <li><a class="reference internal" href="#setup-procedure">Setup procedure</a></li>
 <li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#documentation-for-ramtools">Documentation for ramtools</a><ul>
-<li><a class="reference internal" href="#module-ramtools.ramses">ramses</a></li>
-<li><a class="reference internal" href="#module-ramtools.utilities">utilities</a></li>
-<li><a class="reference internal" href="#module-ramtools.units">units</a></li>
+<li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
+<li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
+<li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
 </ul>
 
   <div role="note" aria-label="source link">
@@ -130,37 +126,34 @@
             
   <div class="section" id="welcome-to-ramtools-s-documentation">
 <h1>Welcome to ramtools’s Documentation!<a class="headerlink" href="#welcome-to-ramtools-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p><cite>ramtools</cite> is a comvenient and fast Python module based on YT that post process simulation data from RAMSES-RT.</p>
+<p>This is a Python module based on YT to post-process simulation data from RAMSES-RT. The code is accessible from this github repository: <a class="reference external" href="https://github.com/chongchonghe/ramtools">https://github.com/chongchonghe/ramtools</a></p>
 <p>Author: Chong-Chong He (che1234 &#64; umd.edu)</p>
+</div>
 <div class="section" id="overview-on-how-to-use-this-module">
-<h2>Overview on How to Use this Module<a class="headerlink" href="#overview-on-how-to-use-this-module" title="Permalink to this headline">¶</a></h2>
+<h1>Overview on How to Use this Module<a class="headerlink" href="#overview-on-how-to-use-this-module" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
 <li><p>Install required packages (yt)</p></li>
-<li><p>Either clone this repository and install it via <code class="code docutils literal notranslate"><span class="pre">pip</span>
-<span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> or install it from PyPi via <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span>
-<span class="pre">ramtools</span></code> (to be published on PyPi, check back later)</p></li>
+<li><p>Either clone this repository and install it via <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>
+or install it from PyPi via <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ramtools</span></code> (to be published on PyPi, check back later)</p></li>
 </ol>
 </div>
 <div class="section" id="setup-procedure">
-<h2>Setup procedure<a class="headerlink" href="#setup-procedure" title="Permalink to this headline">¶</a></h2>
-<p>…</p>
+<h1>Setup procedure<a class="headerlink" href="#setup-procedure" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="features-of-ramtools">
-<h2>Features of ramtools<a class="headerlink" href="#features-of-ramtools" title="Permalink to this headline">¶</a></h2>
+<h1>Features of ramtools<a class="headerlink" href="#features-of-ramtools" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
 <li><p>Simplify the process of analysing RAMSES data with plenty of highly functional tools</p></li>
-<li><p>Make sliceplot/projectplot extremely fast by storing intermediate
-data at first run and reuse it in subsequent runs</p></li>
-<li><p>…</p></li>
+<li><p>Make sliceplot/projectplot extremely fast by storing intermediate data at first run and reuse it in subsequent runs</p></li>
 </ol>
 </div>
-</div>
-<div class="section" id="documentation-for-ramtools">
-<h1>Documentation for ramtools<a class="headerlink" href="#documentation-for-ramtools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="documentation-for-the-code">
+<h1>Documentation for the Code<a class="headerlink" href="#documentation-for-the-code" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+</div>
 <div class="section" id="module-ramtools.ramses">
-<span id="ramses"></span><h2>ramses<a class="headerlink" href="#module-ramtools.ramses" title="Permalink to this headline">¶</a></h2>
+<span id="ramtools-ramses"></span><h1>ramtools ramses<a class="headerlink" href="#module-ramtools.ramses" title="Permalink to this headline">¶</a></h1>
 <p>Defines the Ramses class, the core of ramtools.</p>
 <dl class="py attribute">
 <dt id="ramtools.ramses.RAM_DIR">
@@ -171,6 +164,12 @@ data at first run and reuse it in subsequent runs</p></li>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="ramtools.ramses.NoSinkParticle">
+<em class="property">exception </em><code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">NoSinkParticle</code><a class="headerlink" href="#ramtools.ramses.NoSinkParticle" title="Permalink to this definition">¶</a></dt>
+<dd><p>exception: no sink particle found in an output or a .csv file.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -191,39 +190,25 @@ by claiming this class.</p>
 </pre></div>
 </div>
 <dl class="py method">
-<dt id="ramtools.ramses.Ramses.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Declare a Ramses instance for a given job. The job can be
-specified by one of the following options:</p>
-<ol class="arabic simple">
-<li><p>r = Ramses(<cite>job_dir</cite>), where <cite>job_dir</cite> is the path to the job directory.</p></li>
-<li><p>r = Ramses(jobid = <cite>_id</cite>, ram_dir = <cite>ram_dir</cite>), where <cite>ram_dir</cite> is the directory where all the RAMSES jobs are stored, and <cite>_id</cite> is the string after “Job”. This is equivalent to Ramses(<cite>ram_dir/Job_id</cite>)</p></li>
-<li><p>ramtools.set_RAM_DIR(<cite>ram_dir</cite>); r = Ramses(jobid = <cite>_id</cite>).</p></li>
-</ol>
+<dt id="ramtools.ramses.Ramses.find_formation_pos_from_movie">
+<code class="sig-name descname">find_formation_pos_from_movie</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sinkid</span></em>, <em class="sig-param"><span class="n">msg</span><span class="o">=</span><span class="default_value">'off'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.find_formation_pos_from_movie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the formation location of the sink particles with given sinkid.
+This is done by finding the sink_*.txt file where the sink first form
+and stops accreting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>jobdir</strong> – str
-relative/absolute path to the job directory</p></li>
-<li><p><strong>jobid</strong> – str
-jobid, postfix to ‘Job’ to get the job directory name (in <cite>ram_dir</cite>)</p></li>
-<li><p><strong>ram_dir</strong> – str
-the base directory for the RAMSES jobs</p></li>
+<li><p><strong>sinkid</strong> (<em>int</em>) – (starting from 1)</p></li>
+<li><p><strong>msg</strong> (<em>bool</em><em> or </em><em>string</em>) – print message if msg is True or ‘on’</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>n by 3 array. Position of sink particle at formation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_info_path">
-<code class="sig-name descname">get_info_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_info_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the path to info_out.txt</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.load_ds">
-<code class="sig-name descname">load_ds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.load_ds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a yt.load instance of the frame <cite>out</cite></p>
 </dd></dl>
 
 <dl class="py method">
@@ -234,76 +219,38 @@ and other things</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_units">
-<code class="sig-name descname">get_units</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_units" title="Permalink to this definition">¶</a></dt>
-<dd><p>Define the following units for this job:</p>
-<ol class="arabic simple">
-<li><p>unit_l: this is the boxlen (in cm), which equals to unit_l_code * boxlen</p></li>
-<li><p>unit_l_code: this is the actually length unit (in cm)</p></li>
-<li><p>unit_d: dnesity unit in cgs</p></li>
-<li><p>unit_t: time unit in cgs</p></li>
-<li><p>unit_v: velocity unit in cgs</p></li>
-<li><p>unit_m: mass unit in cgs</p></li>
-<li><p>unit_m_in_Msun: mass unit in Msun</p></li>
-<li><p>kin_ene_in_cgs: kinectic energy in cgs</p></li>
-</ol>
+<dt id="ramtools.ramses.Ramses.get_info_path">
+<code class="sig-name descname">get_info_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_info_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path to info_out.txt</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_sink_path">
-<code class="sig-name descname">get_sink_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the path to sink_*.csv</p>
+<dt id="ramtools.ramses.Ramses.get_sink_acc_rate">
+<code class="sig-name descname">get_sink_acc_rate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_acc_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the sink accretion rate.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>DO NOT USE THIS. The results are not trustable. This column of data from RAMSES outputs seems to be problematic</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_sink_particles">
-<code class="sig-name descname">get_sink_particles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_particles" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dt id="ramtools.ramses.Ramses.get_sink_info_from_movie1">
+<code class="sig-name descname">get_sink_info_from_movie1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sinkid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_info_from_movie1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of time and a list of sink masses</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
+<dd class="field-odd"><p><strong>sinkid</strong> (<em>int</em>) – sink id, starting from 0</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
-<dt>(n, 7) array containing the sink</dt><dd><p>parameters, where n is the number of particles and the 7
-columns are: [m, x, y, z, vx, vy, vx], all in code units</p>
+<dt>a dictionary containing the following keys: ‘out’, ‘t’, ‘m’, ‘x’,</dt><dd><p>’y’, ‘z’, ‘vx’, ‘vy’, ‘vz’. All in code units.</p>
 </dd>
 </dl>
 </p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>particles (array)</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>FileNotFoundError</strong> – </p></li>
-<li><p><a class="reference internal" href="#ramtools.ramses.NoSinkParticle" title="ramtools.ramses.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_sink_positions">
-<code class="sig-name descname">get_sink_positions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_positions" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>an array with shape (n, 3) containing the particle positions</dt><dd><p>in code unit</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>array</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>FileNotFoundError</strong> – </p></li>
-<li><p><a class="reference internal" href="#ramtools.ramses.NoSinkParticle" title="ramtools.ramses.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
-</ul>
+<dd class="field-odd"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
@@ -337,45 +284,63 @@ Replacing get_sink_mass</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_sink_acc_rate">
-<code class="sig-name descname">get_sink_acc_rate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_acc_rate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the sink accretion rate.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>DO NOT USE THIS. The results are not trustable. This column of data from RAMSES outputs seems to be problematic</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_trelax">
-<code class="sig-name descname">get_trelax</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_trelax" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_sink_info_from_movie1">
-<code class="sig-name descname">get_sink_info_from_movie1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sinkid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_info_from_movie1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of time and a list of sink masses</p>
-<dl class="field-list simple">
+<dt id="ramtools.ramses.Ramses.get_sink_particles">
+<code class="sig-name descname">get_sink_particles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_particles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sinkid</strong> (<em>int</em>) – sink id, starting from 0</p>
+<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
-<dt>a dictionary containing the following keys: ‘out’, ‘t’, ‘m’, ‘x’,</dt><dd><p>’y’, ‘z’, ‘vx’, ‘vy’, ‘vz’. All in code units.</p>
+<dt>(n, 7) array containing the sink</dt><dd><p>parameters, where n is the number of particles and the 7
+columns are: [m, x, y, z, vx, vy, vx], all in code units</p>
 </dd>
 </dl>
 </p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>int</p>
+<dd class="field-odd"><p>particles (array)</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – </p></li>
+<li><p><a class="reference internal" href="#ramtools.ramses.NoSinkParticle" title="ramtools.ramses.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_times_from_movie1">
-<code class="sig-name descname">get_times_from_movie1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_times_from_movie1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="ramtools.ramses.Ramses.get_sink_path">
+<code class="sig-name descname">get_sink_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path to sink_*.csv</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.get_sink_positions">
+<code class="sig-name descname">get_sink_positions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_positions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>an array with shape (n, 3) containing the particle positions</dt><dd><p>in code unit</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – </p></li>
+<li><p><a class="reference internal" href="#ramtools.ramses.NoSinkParticle" title="ramtools.ramses.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="ramtools.ramses.Ramses.get_time">
@@ -384,40 +349,25 @@ Replacing get_sink_mass</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_first_output">
-<code class="sig-name descname">get_first_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_first_output" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="ramtools.ramses.Ramses.get_units">
+<code class="sig-name descname">get_units</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the following units for this job:</p>
+<ol class="arabic simple">
+<li><p>unit_l: this is the boxlen (in cm), which equals to unit_l_code * boxlen</p></li>
+<li><p>unit_l_code: this is the actually length unit (in cm)</p></li>
+<li><p>unit_d: dnesity unit in cgs</p></li>
+<li><p>unit_t: time unit in cgs</p></li>
+<li><p>unit_v: velocity unit in cgs</p></li>
+<li><p>unit_m: mass unit in cgs</p></li>
+<li><p>unit_m_in_Msun: mass unit in Msun</p></li>
+<li><p>kin_ene_in_cgs: kinectic energy in cgs</p></li>
+</ol>
+</dd></dl>
 
 <dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_all_outputs">
-<code class="sig-name descname">get_all_outputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_all_outputs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_last_output_backward">
-<code class="sig-name descname">get_last_output_backward</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_last_output_backward" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.find_formation_pos_from_movie">
-<code class="sig-name descname">find_formation_pos_from_movie</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sinkid</span></em>, <em class="sig-param"><span class="n">msg</span><span class="o">=</span><span class="default_value">'off'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.find_formation_pos_from_movie" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the formation location of the sink particles with given sinkid.
-This is done by finding the sink_*.txt file where the sink first form
-and stops accreting.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>sinkid</strong> (<em>int</em>) – (starting from 1)</p></li>
-<li><p><strong>msg</strong> (<em>bool</em><em> or </em><em>string</em>) – print message if msg is True or ‘on’</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>n by 3 array. Position of sink particle at formation</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>array</p>
-</dd>
-</dl>
+<dt id="ramtools.ramses.Ramses.load_ds">
+<code class="sig-name descname">load_ds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.load_ds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a yt.load instance of the frame <cite>out</cite></p>
 </dd></dl>
 
 <dl class="py method">
@@ -454,12 +404,6 @@ the center defining the domain of interest, in boxlen units</p></li>
 
 </dd></dl>
 
-<dl class="py exception">
-<dt id="ramtools.ramses.NoSinkParticle">
-<em class="property">exception </em><code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">NoSinkParticle</code><a class="headerlink" href="#ramtools.ramses.NoSinkParticle" title="Permalink to this definition">¶</a></dt>
-<dd><p>exception: no sink particle found in an output or a .csv file.</p>
-</dd></dl>
-
 <dl class="py function">
 <dt id="ramtools.ramses.set_RAM_DIR">
 <code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">set_RAM_DIR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ram_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.set_RAM_DIR" title="Permalink to this definition">¶</a></dt>
@@ -468,40 +412,7 @@ the center defining the domain of interest, in boxlen units</p></li>
 
 </div>
 <div class="section" id="module-ramtools.utilities">
-<span id="utilities"></span><h2>utilities<a class="headerlink" href="#module-ramtools.utilities" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="ramtools.utilities.mass_to_temp">
-<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">mass_to_temp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.mass_to_temp" title="Permalink to this definition">¶</a></dt>
-<dd><p>input: mass (M_sun); output: T (K)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ramtools.utilities.my_yt_load">
-<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">my_yt_load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">job_path</span></em>, <em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.my_yt_load" title="Permalink to this definition">¶</a></dt>
-<dd><p>Quickly yt.load a job with the correct FIELDS</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>job_path</strong> (<em>str</em>) – path to a job directory</p></li>
-<li><p><strong>out</strong> (<em>int</em>) – the output frame you want to load</p></li>
-</ul>
-</dd>
-</dl>
-<p>Usage:
-&gt;&gt;&gt; ds = my_yt_load(“tests/Job1”, 1)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ramtools.utilities.read_quant_from_ramses_info">
-<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">read_quant_from_ramses_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">info</span></em>, <em class="sig-param"><span class="n">quant</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.read_quant_from_ramses_info" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="ramtools.utilities.get_times_from_movie1">
-<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_times_from_movie1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">movie_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_times_from_movie1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a dictionary: {100: 0.012, 101: 0.013, …}</p>
-</dd></dl>
-
+<span id="ramtools-utilities"></span><h1>ramtools utilities<a class="headerlink" href="#module-ramtools.utilities" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ramtools.utilities.get_sink_info_from_movie1">
 <code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_sink_info_from_movie1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">movie_dir</span></em>, <em class="sig-param"><span class="n">sinkid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_sink_info_from_movie1" title="Permalink to this definition">¶</a></dt>
@@ -555,6 +466,12 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="ramtools.utilities.get_times_from_movie1">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_times_from_movie1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">movie_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_times_from_movie1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary: {100: 0.012, 101: 0.013, …}</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="ramtools.utilities.get_unit_B">
 <code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_unit_B</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_unit_B" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the unit of B field strength</p>
@@ -569,9 +486,31 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt id="ramtools.utilities.mass_to_temp">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">mass_to_temp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.mass_to_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>input: mass (M_sun); output: T (K)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.utilities.my_yt_load">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">my_yt_load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">job_path</span></em>, <em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.my_yt_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quickly yt.load a job with the correct FIELDS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>job_path</strong> (<em>str</em>) – path to a job directory</p></li>
+<li><p><strong>out</strong> (<em>int</em>) – the output frame you want to load</p></li>
+</ul>
+</dd>
+</dl>
+<p>Usage:
+&gt;&gt;&gt; ds = my_yt_load(“tests/Job1”, 1)</p>
+</dd></dl>
+
 </div>
 <div class="section" id="module-ramtools.units">
-<span id="units"></span><h2>units<a class="headerlink" href="#module-ramtools.units" title="Permalink to this headline">¶</a></h2>
+<span id="ramtools-units"></span><h1>ramtools units<a class="headerlink" href="#module-ramtools.units" title="Permalink to this headline">¶</a></h1>
 <dl class="simple">
 <dt>Define the following constants in cgs units:</dt><dd><ul class="simple">
 <li><p>all constants in con_list</p></li>
@@ -583,13 +522,12 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 <p>&#64;author: chongchonghe</p>
 </div>
 <div class="section" id="indices-and-tables">
-<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</div>
 </div>
 
 
@@ -601,19 +539,15 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to ramtools’s Documentation!</a><ul>
+<li><a class="reference internal" href="#">Welcome to ramtools’s Documentation!</a></li>
 <li><a class="reference internal" href="#overview-on-how-to-use-this-module">Overview on How to Use this Module</a></li>
 <li><a class="reference internal" href="#setup-procedure">Setup procedure</a></li>
 <li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#documentation-for-ramtools">Documentation for ramtools</a><ul>
-<li><a class="reference internal" href="#module-ramtools.ramses">ramses</a></li>
-<li><a class="reference internal" href="#module-ramtools.utilities">utilities</a></li>
-<li><a class="reference internal" href="#module-ramtools.units">units</a></li>
+<li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
+<li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
+<li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
 </ul>
 
   <div role="note" aria-label="source link">
