@@ -55,6 +55,7 @@
 <li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
 <li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
 <li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramplot">ramtools ramplot</a></li>
 <li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
 <li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
@@ -411,6 +412,63 @@ the center defining the domain of interest, in boxlen units</p></li>
 </dd></dl>
 
 </div>
+<div class="section" id="module-ramtools.ramplot">
+<span id="ramtools-ramplot"></span><h1>ramtools ramplot<a class="headerlink" href="#module-ramtools.ramplot" title="Permalink to this headline">¶</a></h1>
+<p>Some utilities to make figures.</p>
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">...</code></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="ramtools.ramplot.RamPlot">
+<em class="property">class </em><code class="sig-prename descclassname">ramtools.ramplot.</code><code class="sig-name descname">RamPlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="ramtools.ramplot.RamPlot.plot_prj">
+<code class="sig-name descname">plot_prj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">ds</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">0.5, 0.5, 0.5</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'x'</span></em>, <em class="sig-param"><span class="n">field</span><span class="o">=</span><span class="default_value">'density'</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">'density'</span></em>, <em class="sig-param"><span class="n">kind</span><span class="o">=</span><span class="default_value">'projection'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">north</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot.plot_prj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot projection or slice plot. When plotting projection plot, an
+intermediate data is stored for fast recreate of the figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>out</strong> (<em>int</em>) – the frame number</p></li>
+<li><p><strong>ds</strong> (<em>YT ds</em>) – optional. If not specified, will load a ds using self.load_ds</p></li>
+<li><p><strong>center</strong> (<em>tuple</em>) – the center as a tuple in boxlen unit. Default: (0.5, 0.5, 0.5)</p></li>
+<li><p><strong>width</strong> (<em>tuple</em><em> or </em><em>float</em>) – the width of the area to plot. e.g. (0.1 ‘pc’); 0.02. Default: 0.5</p></li>
+<li><p><strong>axis</strong> (<em>int</em><em> or </em><em>str</em>) – the axis of the line of sight. Default: ‘x’</p></li>
+<li><p><strong>field</strong> (<em>tuple</em><em> or </em><em>str</em>) – the field to plot. Default: ‘density’</p></li>
+<li><p><strong>weight_field</strong> (<em>tuple</em><em> or </em><em>str</em>) – the field to weight with. Default: ‘density’</p></li>
+<li><p><strong>kind</strong> (<em>str</em>) – the figure type, either ‘projection’ (default) or ‘slice’.</p></li>
+<li><p><strong>normal</strong> (<em>tuple</em><em> or </em><em>list</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.ramplot.den_setup">
+<code class="sig-prename descclassname">ramtools.ramplot.</code><code class="sig-name descname">den_setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">time_offset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mu</span><span class="o">=</span><span class="default_value">1.4</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">'number_density'</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.den_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>YT plot</em>) – </p></li>
+<li><p><strong>zlim</strong> (<em>tuple</em>) – limits of the field</p></li>
+<li><p><strong>mu</strong> (<em>float</em>) – the mean particle weight. The mass density rho = mu * n</p></li>
+<li><p><strong>quant</strong> (<em>str</em>) – ‘volume’ or ‘column’ for volumetric and column density</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.ramplot.dict_hash">
+<code class="sig-prename descclassname">ramtools.ramplot.</code><code class="sig-name descname">dict_hash</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dictionary</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#ramtools.ramplot.dict_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>MD5 hash of a dictionary.</p>
+</dd></dl>
+
+</div>
 <div class="section" id="module-ramtools.utilities">
 <span id="ramtools-utilities"></span><h1>ramtools utilities<a class="headerlink" href="#module-ramtools.utilities" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
@@ -545,6 +603,7 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 <li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
 <li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
 <li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramplot">ramtools ramplot</a></li>
 <li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
 <li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>

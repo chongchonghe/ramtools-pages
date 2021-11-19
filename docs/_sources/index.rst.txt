@@ -35,6 +35,11 @@ ramtools ramses
 .. automodule:: ramtools.ramses
    :members:
 
+ramtools ramplot
+==================================
+.. automodule:: ramtools.ramplot
+   :members:
+
 ramtools utilities
 ==================================
 .. automodule:: ramtools.utilities
