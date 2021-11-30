@@ -54,6 +54,7 @@
 <li><a class="reference internal" href="#setup-procedure">Setup procedure</a></li>
 <li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
 <li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
+<li><a class="reference internal" href="#module-ramtools.ytfast">ramtools ytfast</a></li>
 <li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
 <li><a class="reference internal" href="#module-ramtools.ramplot">ramtools ramplot</a></li>
 <li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
@@ -152,6 +153,44 @@ or install it from PyPi via <code class="code docutils literal notranslate"><spa
 <h1>Documentation for the Code<a class="headerlink" href="#documentation-for-the-code" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+</div>
+<div class="section" id="module-ramtools.ytfast">
+<span id="ramtools-ytfast"></span><h1>ramtools ytfast<a class="headerlink" href="#module-ramtools.ytfast" title="Permalink to this headline">¶</a></h1>
+<p>A general wrapper to make some fo the common yt functions more
+efficient by reusing intermediate data</p>
+<p>General-purpose yt wrappers. Apply to any data that yt supports.</p>
+<dl class="py function">
+<dt id="ramtools.ytfast.PhasePlot">
+<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">PhasePlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_source</span></em>, <em class="sig-param"><span class="n">x_field</span></em>, <em class="sig-param"><span class="n">y_field</span></em>, <em class="sig-param"><span class="n">z_fields</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">'gas', 'mass'</span></em>, <em class="sig-param"><span class="n">x_bins</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">y_bins</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">accumulation</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fractional</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fontsize</span><span class="o">=</span><span class="default_value">18</span></em>, <em class="sig-param"><span class="n">figure_size</span><span class="o">=</span><span class="default_value">8.0</span></em>, <em class="sig-param"><span class="n">shading</span><span class="o">=</span><span class="default_value">'nearest'</span></em>, <em class="sig-param"><span class="n">extrema</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlims</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">define_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_cb</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">cb_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ret</span><span class="o">=</span><span class="default_value">'imshow'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.PhasePlot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args passed to yt.PhasePlot</strong> (<em>#</em>) – </p></li>
+<li><p><strong>data_source</strong> (<em>YTSelectionContainer Object</em>) – </p></li>
+<li><p><strong>x_field</strong> (<em>tuple</em>) – </p></li>
+<li><p><strong>y_field</strong> (<em>tuple</em>) – </p></li>
+<li><p><strong>z_fields</strong> (<em>list of tuples</em>) – </p></li>
+<li><p><strong>weight_field</strong> (<em>tuple</em>) – </p></li>
+<li><p><strong>args passed to yt.PhasePlot</strong> – </p></li>
+<li><p><strong>zlims</strong> (<em>list_like</em>) – lims of z_fields</p></li>
+<li><p><strong>force_redo</strong> (<em>bool</em>) – toggle always make h5 data</p></li>
+<li><p><strong>define_field</strong> (<em>func</em>) – function to define a new field</p></li>
+<li><p><strong>is_cb</strong> (<em>bool</em>) – toggle show colorbar (default: True)</p></li>
+<li><p><strong>cb_label</strong> (<em>str</em>) – colorbar label (default: ‘’)</p></li>
+<li><p><strong>f</strong> (<em>plt.figure</em>) – figure to plot on (default: None)</p></li>
+<li><p><strong>ax</strong> (<em>plt.axis</em>) – axis to plot on (default: None)</p></li>
+<li><p><strong>ret</strong> (<em>str</em>) – what to return (default: ‘imshow’). One of [‘imshow’, ‘data’]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.ytfast.dict_hash">
+<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">dict_hash</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dictionary</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#ramtools.ytfast.dict_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>MD5 hash of a dictionary.</p>
+</dd></dl>
+
 </div>
 <div class="section" id="module-ramtools.ramses">
 <span id="ramtools-ramses"></span><h1>ramtools ramses<a class="headerlink" href="#module-ramtools.ramses" title="Permalink to this headline">¶</a></h1>
@@ -424,8 +463,45 @@ the center defining the domain of interest, in boxlen units</p></li>
 <dt id="ramtools.ramplot.RamPlot">
 <em class="property">class </em><code class="sig-prename descclassname">ramtools.ramplot.</code><code class="sig-name descname">RamPlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
+<dt id="ramtools.ramplot.RamPlot.plot_2d_profile">
+<code class="sig-name descname">plot_2d_profile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">center</span></em>, <em class="sig-param"><span class="n">radius</span></em>, <em class="sig-param"><span class="n">field_x</span></em>, <em class="sig-param"><span class="n">field_y</span></em>, <em class="sig-param"><span class="n">field</span></em>, <em class="sig-param"><span class="n">ds</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lims</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">vlims</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">with_cb</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">define_field</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot.plot_2d_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot 2D profile. Will store intermediate to disk for fast recreate of
+the figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jobpath</strong> (<em>str</em>) – path to job</p></li>
+<li><p><strong>out</strong> (<em>int</em>) – </p></li>
+<li><p><strong>center</strong> (<em>tuple</em><em> or </em><em>str</em>) – tuple (boxlen unit) or ‘c’ (center)</p></li>
+<li><p><strong>radius</strong> (<em>float</em><em> or </em><em>tuple</em>) – radius (half-width) of the region</p></li>
+<li><p><strong>ds</strong> (<em>YT ds</em>) – optional, feed ds (default None)</p></li>
+<li><p><strong>lims</strong> (<em>dict</em>) – limits of the axes, e.g. {‘density’: [1e3, 1e5],
+‘temperature’: [1e0, 1e4]}</p></li>
+<li><p><strong>vlims</strong> (<em>tuple</em>) – vlims of the colorbar (default None)</p></li>
+<li><p><strong>with_cb</strong> (<em>bool</em>) – toggle colorbar (default True)</p></li>
+<li><p><strong>define_field</strong> (<em>function</em>) – a function that defines a new field. It
+should take ds as an argument.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>yt profile plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramplot.RamPlot.plot_phaseplot_for_all">
+<code class="sig-name descname">plot_phaseplot_for_all</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">figdir</span></em>, <em class="sig-param"><span class="n">center</span></em>, <em class="sig-param"><span class="n">radius</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">phaseplot_kwargs</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot.plot_phaseplot_for_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot_phaseplot_for_all</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">x_field</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;gas&#39;</span><span class="p">,</span> <span class="s1">&#39;density&#39;</span><span class="p">),</span>
+<span class="go">        y_field=(&#39;gas&#39;, &#39;temperature&#39;), z_fields=(&#39;gas&#39;, &#39;cell_mass&#39;))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="ramtools.ramplot.RamPlot.plot_prj">
-<code class="sig-name descname">plot_prj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">ds</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">0.5, 0.5, 0.5</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'x'</span></em>, <em class="sig-param"><span class="n">field</span><span class="o">=</span><span class="default_value">'density'</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">'density'</span></em>, <em class="sig-param"><span class="n">kind</span><span class="o">=</span><span class="default_value">'projection'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">north</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot.plot_prj" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_prj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">ds</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">0.5, 0.5, 0.5</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'x'</span></em>, <em class="sig-param"><span class="n">field</span><span class="o">=</span><span class="default_value">'density'</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">'density'</span></em>, <em class="sig-param"><span class="n">kind</span><span class="o">=</span><span class="default_value">'projection'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">north</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">use_h5</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot.plot_prj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot projection or slice plot. When plotting projection plot, an
 intermediate data is stored for fast recreate of the figure.</p>
 <dl class="field-list simple">
@@ -439,8 +515,40 @@ intermediate data is stored for fast recreate of the figure.</p>
 <li><p><strong>field</strong> (<em>tuple</em><em> or </em><em>str</em>) – the field to plot. Default: ‘density’</p></li>
 <li><p><strong>weight_field</strong> (<em>tuple</em><em> or </em><em>str</em>) – the field to weight with. Default: ‘density’</p></li>
 <li><p><strong>kind</strong> (<em>str</em>) – the figure type, either ‘projection’ (default) or ‘slice’.</p></li>
-<li><p><strong>normal</strong> (<em>tuple</em><em> or </em><em>list</em>) – </p></li>
+<li><p><strong>normal</strong> (<em>tuple</em><em> or </em><em>list</em>) – normal vector</p></li>
+<li><p><strong>north</strong> (<em>tuple</em><em> or </em><em>lsit</em>) – north vector</p></li>
+<li><p><strong>tag</strong> (<em>any</em>) – a tag</p></li>
+<li><p><strong>use_h5</strong> (<em>bool</em>) – whether or not to use h5 data</p></li>
+<li><p><strong>force_redo</strong> (<em>bool</em>) – whether or not to force remake the h5 data and figure</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>you can save it to file by <cite>p.save(‘filename.png’)</cite></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>p (YT plot instance)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramplot.RamPlot.projection_for_all_outputs">
+<code class="sig-name descname">projection_for_all_outputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outdir</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">'output'</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">'c'</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot.projection_for_all_outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot (density-weighted) projection of density for all frames of a
+simulation job.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ourdir</strong> (<em>int</em>) – </p></li>
+<li><p><strong>prefix</strong> (<em>str</em>) – prefix of the filenames (default “output”). The name
+of the figures would be prefix-x-output_00001.png</p></li>
+<li><p><strong>center</strong> (<em>str</em><em> or </em><em>list</em>) – (default ‘c’)</p></li>
+<li><p><strong>width</strong> (<em>float</em><em> or </em><em>tuple</em>) – (default 1.0) float as in boxlen unit or a
+tuple containing a number and unit, e.g. (0.1, ‘pc’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -602,6 +710,7 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 <li><a class="reference internal" href="#setup-procedure">Setup procedure</a></li>
 <li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
 <li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
+<li><a class="reference internal" href="#module-ramtools.ytfast">ramtools ytfast</a></li>
 <li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
 <li><a class="reference internal" href="#module-ramtools.ramplot">ramtools ramplot</a></li>
 <li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
