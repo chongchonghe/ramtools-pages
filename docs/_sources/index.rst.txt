@@ -55,6 +55,11 @@ ramtools units
 .. automodule:: ramtools.units
    :members:
 
+ramtools imf
+==================================
+.. automodule:: ramtools.imf
+   :members:
+
 Indices and tables
 ==================================
 

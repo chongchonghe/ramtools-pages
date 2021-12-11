@@ -59,6 +59,7 @@
 <li><a class="reference internal" href="#module-ramtools.ramplot">ramtools ramplot</a></li>
 <li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
 <li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
+<li><a class="reference internal" href="#module-ramtools.imf">ramtools imf</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
@@ -161,7 +162,7 @@ efficient by reusing intermediate data</p>
 <p>General-purpose yt wrappers. Apply to any data that yt supports.</p>
 <dl class="py function">
 <dt id="ramtools.ytfast.PhasePlot">
-<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">PhasePlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_source</span></em>, <em class="sig-param"><span class="n">x_field</span></em>, <em class="sig-param"><span class="n">y_field</span></em>, <em class="sig-param"><span class="n">z_fields</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">'gas', 'mass'</span></em>, <em class="sig-param"><span class="n">x_bins</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">y_bins</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">accumulation</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fractional</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fontsize</span><span class="o">=</span><span class="default_value">18</span></em>, <em class="sig-param"><span class="n">figure_size</span><span class="o">=</span><span class="default_value">8.0</span></em>, <em class="sig-param"><span class="n">shading</span><span class="o">=</span><span class="default_value">'nearest'</span></em>, <em class="sig-param"><span class="n">extrema</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlims</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">define_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_cb</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">cb_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ret</span><span class="o">=</span><span class="default_value">'imshow'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.PhasePlot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">PhasePlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_source</span></em>, <em class="sig-param"><span class="n">x_field</span></em>, <em class="sig-param"><span class="n">y_field</span></em>, <em class="sig-param"><span class="n">z_fields</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_bins</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">y_bins</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">accumulation</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fractional</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fontsize</span><span class="o">=</span><span class="default_value">18</span></em>, <em class="sig-param"><span class="n">figure_size</span><span class="o">=</span><span class="default_value">8.0</span></em>, <em class="sig-param"><span class="n">shading</span><span class="o">=</span><span class="default_value">'nearest'</span></em>, <em class="sig-param"><span class="n">extrema</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlims</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">define_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_cb</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">'viridis'</span></em>, <em class="sig-param"><span class="n">cb_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ret</span><span class="o">=</span><span class="default_value">'imshow'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.PhasePlot" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -183,6 +184,39 @@ efficient by reusing intermediate data</p>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.ytfast.ProfilePlot">
+<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">ProfilePlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_source</span></em>, <em class="sig-param"><span class="n">x_field</span></em>, <em class="sig-param"><span class="n">y_fields</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">'gas', 'mass'</span></em>, <em class="sig-param"><span class="n">n_bins</span><span class="o">=</span><span class="default_value">64</span></em>, <em class="sig-param"><span class="n">accumulation</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fractional</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">plot_spec</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_log</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">y_log</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">xlims</span><span class="o">=</span><span class="default_value">[None, None]</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">define_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ret</span><span class="o">=</span><span class="default_value">'plot'</span></em>, <em class="sig-param"><span class="n">mpl_kwargs</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.ProfilePlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make 1D profile plot (histogram). Will save intermediate data as h5 files
+in DATA_DIR. The second time use of this function will be very fast.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_source</strong> – </p></li>
+<li><p><strong>x_field</strong> – </p></li>
+<li><p><strong>y_fields</strong> – </p></li>
+<li><p><strong>weight_field</strong> – </p></li>
+<li><p><strong>n_bins</strong> – </p></li>
+<li><p><strong>accumulation</strong> – </p></li>
+<li><p><strong>fractional</strong> – </p></li>
+<li><p><strong>label</strong> – </p></li>
+<li><p><strong>plot_spec</strong> – </p></li>
+<li><p><strong>x_log</strong> – </p></li>
+<li><p><strong>y_log</strong> – </p></li>
+<li><p><strong>xlims</strong> – </p></li>
+<li><p><strong>force_redo</strong> – </p></li>
+<li><p><strong>define_field</strong> – (function) a function to define a new field.
+define_field(ds).</p></li>
+<li><p><strong>f</strong> – </p></li>
+<li><p><strong>ax</strong> – </p></li>
+<li><p><strong>ret</strong> – (str) return type, one of [‘plot’, ‘data’]. Default: ‘plot’</p></li>
+<li><p><strong>mpl_kwargs</strong> – kwargs to plt.plot</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
 </dd></dl>
 
 <dl class="py function">
@@ -428,7 +462,7 @@ slice/project plot</p>
 
 <dl class="py method">
 <dt id="ramtools.ramses.Ramses.overplot_sink_with_id">
-<code class="sig-name descname">overplot_sink_with_id</code><span class="sig-paren">(</span><em class="sig-param">plot</em>, <em class="sig-param">out</em>, <em class="sig-param">center</em>, <em class="sig-param">radius</em>, <em class="sig-param">is_id=True</em>, <em class="sig-param">colors=&lt;matplotlib.colors.LinearSegmentedColormap object&gt;</em>, <em class="sig-param">withedge=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.overplot_sink_with_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">overplot_sink_with_id</code><span class="sig-paren">(</span><em class="sig-param">plot, out, center, radius, is_id=True, colors=&lt;matplotlib.colors.LinearSegmentedColormap object&gt;, withedge=False, lims=[0.01, 100.0]</em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.overplot_sink_with_id" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -442,6 +476,38 @@ the center defining the domain of interest, in boxlen units</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="ramtools.ramses.Ramses.overplot_time_tag">
+<code class="sig-name descname">overplot_time_tag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">timeshift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">loc</span><span class="o">=</span><span class="default_value">'upper left'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.overplot_time_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overplot time tag on top-left corner</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> – </p></li>
+<li><p><strong>out</strong> – </p></li>
+<li><p><strong>timeshift</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.ramses.overplot_time_tag">
+<code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">overplot_time_tag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">loc</span><span class="o">=</span><span class="default_value">'upper left'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.overplot_time_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overplot time tag on top-left corner</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> – </p></li>
+<li><p><strong>out</strong> – </p></li>
+<li><p><strong>timeshift</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
 </dd></dl>
 
 <dl class="py function">
@@ -687,6 +753,425 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 </dl>
 <p>&#64;author: chongchonghe</p>
 </div>
+<div class="section" id="module-ramtools.imf">
+<span id="ramtools-imf"></span><h1>ramtools imf<a class="headerlink" href="#module-ramtools.imf" title="Permalink to this headline">¶</a></h1>
+<p>imf.py</p>
+<p>Author: Chong-Chong He (<a class="reference external" href="mailto:che1234&#37;&#52;&#48;umd&#46;edu">che1234<span>&#64;</span>umd<span>&#46;</span>edu</a>)
+Written on Sat,  4 Apr 2020.</p>
+<dl class="py class">
+<dt id="ramtools.imf.Sink">
+<em class="property">class </em><code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">Sink</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read sink info from outputs, make plots of SFE, sink number, and IMF</p>
+<dl class="py method">
+<dt id="ramtools.imf.Sink.MassFunc">
+<code class="sig-name descname">MassFunc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bins</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">outputID</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tff</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_x_log_number</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_plot_kroupa</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">isFill</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">plotstyle</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.MassFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the mass function
+kwargs could be: refPoint = [x_start, x_end], bin_max, bin_min,
+nbins, xlim, ylim, (ALL IN DEX), isDisplayMSM(bool)</p>
+<p>is_x_log_number: If True, plot x as x = log10(masses).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.imf.Sink.display_summary">
+<code class="sig-name descname">display_summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.display_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summary of SFE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.imf.Sink.find_SNs">
+<code class="sig-name descname">find_SNs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lastoutput</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mSN</span><span class="o">=</span><span class="default_value">8.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.find_SNs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the raw time (in Myr) of all SN explosions
+!!! Apply to the version of RAMSES where all stars never die.
+:returns: * <strong>time</strong> (<em>{list}, the time of all SNe explosions, not necessary on</em>)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>output snapshots, before the lastoutput, when the first SN</em></p></li>
+<li><p><em>explode</em></p></li>
+<li><p><strong>i</strong> (<em>the outputID when the first SN explode</em>)</p></li>
+<li><p><em>Exeptions</em></p></li>
+<li><p><em>-1, 0</em></p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.imf.Sink.find_first_SN">
+<code class="sig-name descname">find_first_SN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mSN</span><span class="o">=</span><span class="default_value">8.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.find_first_SN" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>i</strong> (<em>the output of the first SN. If no SN found, return -1</em>)</p></li>
+<li><p><strong>time</strong> (<em>the time (in Myr) of the first SN (not - tRelax)</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.imf.Sink.imf_summary">
+<code class="sig-name descname">imf_summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">outputID</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.imf_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the mean sink mass at the top right corner</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.imf.Sink.imf_summary_text">
+<code class="sig-name descname">imf_summary_text</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputID</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.imf_summary_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the texts of the mean sink mass</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.imf.Sink.overplot_kroupa">
+<code class="sig-name descname">overplot_kroupa</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">m_sum</span></em>, <em class="sig-param"><span class="n">m_min</span><span class="o">=</span><span class="default_value">0.08</span></em>, <em class="sig-param"><span class="n">m_max</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">textxy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ls</span><span class="o">=</span><span class="default_value">'--'</span></em>, <em class="sig-param"><span class="n">isxloged</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.overplot_kroupa" title="Permalink to this definition">¶</a></dt>
+<dd><p>over plot a Kroupa IMF curve. parameters are in log scale
+Normalized to total stellar mass</p>
+<p class="rubric">Notes</p>
+<p>self is useless. I put INTERP here for INTERP to be copied in the Sink class</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.imf.Sink.plot_IMF">
+<code class="sig-name descname">plot_IMF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bins</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">is_over_dlogm</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.plot_IMF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot MF of an output. Tag with time, out id, m_tot, and N</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>plot axis</em>) – description</p></li>
+<li><p><strong>out</strong> (<em>int</em>) – output number. Default: self.get_last_output()</p></li>
+<li><p><strong>bins</strong> (<em>str</em><em> or </em><em>list/array</em>) – description</p></li>
+<li><p><strong>is_over_dlogm</strong> (<em>bool</em>) – False: y = dN. True: y = dN/dlogm</p></li>
+<li><p><strong>kwargs</strong> – <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs for plot_imf()</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.imf.Sink.plot_SFE">
+<code class="sig-name descname">plot_SFE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">yscale</span><span class="o">=</span><span class="default_value">'log'</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_disp_SN</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.plot_SFE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a single SFE curve.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.imf.Sink.plot_imf_one_grid_single_line">
+<code class="sig-name descname">plot_imf_one_grid_single_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">outputid</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">'k'</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mass_shift</span><span class="o">=</span><span class="default_value">0.4</span></em>, <em class="sig-param"><span class="n">is_plot_kroupa</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_title</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">is_text</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_met</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_text_cloud_param</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.plot_imf_one_grid_single_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot one single line of IMF, Kroupa line (optional), set title
+(optional), and add text (optional)
+Parameters</p>
+<dl class="simple">
+<dt>is_text: bool</dt><dd><p>Control if or not to add texts at topleft (gas mass and den) and
+topright corner.</p>
+</dd>
+<dt>is_met: bool</dt><dd><p>Only when is_text = True. Control if or not only add text at
+topright corner.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.bayes_get_param">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">bayes_get_param</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">masses</span></em>, <em class="sig-param"><span class="n">thresh</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.bayes_get_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given star masses and the percentile cummanative mass fraction to
+fit with, return the bayes parameters and the mass cut</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.bayesian_imf_fit">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">bayesian_imf_fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mass</span></em>, <em class="sig-param"><span class="n">m1</span></em>, <em class="sig-param"><span class="n">m2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.bayesian_imf_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do a Bayesian fitting to mass with a power-law slope at -alpha
+in range m1 to m2. Return alpha.
+mass is the shifted sink mass.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mass</strong> (<em>[</em><em>array</em><em>]</em><em>, </em><em>all the masses to fit with</em>) – </p></li>
+<li><p><strong>m1</strong> (<em>fitting range</em>) – </p></li>
+<li><p><strong>m2</strong> (<em>fitting range</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(A, a_peak, a_peak_minus, a_peak_plus)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.bayesian_imf_fit_new">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">bayesian_imf_fit_new</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mass</span></em>, <em class="sig-param"><span class="n">m1</span></em>, <em class="sig-param"><span class="n">m2</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.bayesian_imf_fit_new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Based on and replacing bayesian_imf_fit. Now the mass fed in could
+be all the masses in a simulation. Masses outside of [m1, m2] will
+be cut out.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.chabrier05">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">chabrier05</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.chabrier05" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Chabrier 2015 single-star IMF. Reference: Eq. 3 of  Krumholz:2014.
+The value of mc is missing. Refer to the original paper: Chabrier:2015</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return float</dt>
+<dd class="field-odd"><p>dndlogm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.chabrier05_logm">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">chabrier05_logm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.chabrier05_logm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>float: dndlogm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.chabrier2003">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">chabrier2003</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.chabrier2003" title="Permalink to this definition">¶</a></dt>
+<dd><p>The chabrier 2003 system IMF</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.find_sigma">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">find_sigma</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logl</span></em>, <em class="sig-param"><span class="n">alpha</span></em>, <em class="sig-param"><span class="n">deltalogl</span><span class="o">=</span><span class="default_value">- 0.5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.find_sigma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the most probable alpha and 1 sigam region of alpha,
+given the log likelihood logl.</p>
+<p>alpha_max, alpha_minus, alpha_plus</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.get_bins">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">get_bins</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mass</span></em>, <em class="sig-param"><span class="n">maxBins</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">m_min</span><span class="o">=</span><span class="default_value">0.1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.get_bins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the bins for IMF. Apply on shifted mass</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.imf_compare">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">imf_compare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">m1</span></em>, <em class="sig-param"><span class="n">m2</span></em>, <em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">c1</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">c2</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">groups1</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">groups2</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.imf_compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare two MFs in a top-bottom view.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m1</strong> – (array )</p></li>
+<li><p><strong>m2</strong> – (array )</p></li>
+<li><p><strong>ax</strong> – plt axis</p></li>
+<li><p><strong>c1</strong> – color for m1 (default None)</p></li>
+<li><p><strong>c2</strong> – color for m2 (default None)</p></li>
+<li><p><strong>groups1</strong> – (list of lists) particle groups for m1 (default None)</p></li>
+<li><p><strong>groups2</strong> – (list of lists) particle groups for m2 (default None)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>f, ax</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.kroupa_int_two_side">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">kroupa_int_two_side</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">alpha1</span></em>, <em class="sig-param"><span class="n">alpha2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.kroupa_int_two_side" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample Kroupa IMF. The coefficient is set by assuming alpha1 =
+0.3, and alpha2 = 1.3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.likeli">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">likeli</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">m1</span></em>, <em class="sig-param"><span class="n">m2</span></em>, <em class="sig-param"><span class="n">alpha</span></em>, <em class="sig-param"><span class="n">mu</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.likeli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the log likelihood. mu = np.log10(mass) is all masses.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.lognormal">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">lognormal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.lognormal" title="Permalink to this definition">¶</a></dt>
+<dd><p>A lognormal IMF.  The default parameters correspond to the Chabrier IMF</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.mass_vertical_line">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">mass_vertical_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">masses</span></em>, <em class="sig-param"><span class="n">thresh</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">'k'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.mass_vertical_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>add mass divider. Apply to masses directly (will not shift the mass)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.overplot_kroupa_new">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">overplot_kroupa_new</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">m_sum</span></em>, <em class="sig-param"><span class="n">m_min</span><span class="o">=</span><span class="default_value">0.08</span></em>, <em class="sig-param"><span class="n">m_max</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">textxy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ls</span><span class="o">=</span><span class="default_value">'--'</span></em>, <em class="sig-param"><span class="n">isxloged</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.overplot_kroupa_new" title="Permalink to this definition">¶</a></dt>
+<dd><p>over plot a Kroupa IMF curve. parameters are in log scale
+Normalized to total stellar mass</p>
+<p class="rubric">Notes</p>
+<p>self is useless. I put INTERP here for INTERP to be copied in the Sink class</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.overplot_salpeter">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">overplot_salpeter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">m_sum</span></em>, <em class="sig-param"><span class="n">m_min</span><span class="o">=</span><span class="default_value">0.08</span></em>, <em class="sig-param"><span class="n">m_max</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">textxy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.overplot_salpeter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overplot a Salpeter line. textxy=[textx, texty] in
+log scale</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.pick_kroupa">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">pick_kroupa</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">rand</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.pick_kroupa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pick a Kropam sampling
+rand is set for faster sampling based on numpy arrays.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.pick_salpeter">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">pick_salpeter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">2.35</span></em>, <em class="sig-param"><span class="n">rand</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.pick_salpeter" title="Permalink to this definition">¶</a></dt>
+<dd><p>For salpeter, rand is set for faster sampling based on numpy
+arrays.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.plot_bayes_fit_any_width">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">plot_bayes_fit_any_width</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">masses</span></em>, <em class="sig-param"><span class="n">thresh</span></em>, <em class="sig-param"><span class="n">yscaleup</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">'g'</span></em>, <em class="sig-param"><span class="n">is_xlog</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.plot_bayes_fit_any_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>plot a bayes fit on top of a IMF</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.plot_imf">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">plot_imf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">mass</span></em>, <em class="sig-param"><span class="n">bins</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xlim</span><span class="o">=</span><span class="default_value">[- 2, 2]</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">[0.7, 330.0]</span></em>, <em class="sig-param"><span class="n">is_over_dlogm</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">is_text</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.plot_imf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the mass spectrum of mass on ax.
+x: mass bins; y: d N / d log10(m)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.plot_imf_N_vs_m">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">plot_imf_N_vs_m</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">m</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">'k'</span></em>, <em class="sig-param"><span class="n">istext</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">bin_width</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bins</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.plot_imf_N_vs_m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given m, plot the mass function where the y axis is the number of
+stars and x axis is log(m), with bin size 0.1 deg.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.plot_imf_from_nbins">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">plot_imf_from_nbins</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">bins</span></em>, <em class="sig-param"><span class="n">isLog</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.plot_imf_from_nbins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a mass spectrum on ax, given n and bins. y: d N / d log(m)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.plot_imf_from_output">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">plot_imf_from_output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">r</span></em>, <em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">isbay</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.plot_imf_from_output" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>plt axis</em>) – the axis to plot on</p></li>
+<li><p><strong>r</strong> (<em>Sink class object</em>) – Instance of ramses.Ramses</p></li>
+<li><p><strong>out</strong> (<em>int</em>) – output ID</p></li>
+<li><p><strong>isbay</strong> (<em>bool</em>) – If True, plot Bayesian fit to the power-law slopw</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.plot_single_imf">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">plot_single_imf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">is_set_title</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">is_plot_kroupa</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.plot_single_imf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outdated. Do not use.
+Plot the MFs of one job.
+The indxes must be in reversed order (from big to small)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.plot_sp_imf_one_job">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">plot_sp_imf_one_job</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">gammas</span></em>, <em class="sig-param"><span class="n">m_min</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">m_lower</span><span class="o">=</span><span class="default_value">0.08</span></em>, <em class="sig-param"><span class="n">sample_label_ext</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.plot_sp_imf_one_job" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>plt axis</em>) – the axis to plot in</p></li>
+<li><p><strong>jobid</strong> (<em>str</em>) – jobid, e.g. ‘4.3.1’</p></li>
+<li><p><strong>is_sal</strong> (<em>#</em>) – </p></li>
+<li><p><strong>If True</strong> (<em>#</em>) – </p></li>
+<li><p><strong>Salpeter sampling along with Kroupa sampling.</strong> (<em>add</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.pow_int">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">pow_int</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">beta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.pow_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the integral of x^-alpha from a to b. beta = 1 - alpha.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.random">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; x in the interval [0, 1).<a class="headerlink" href="#ramtools.imf.random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.sample_filename">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">sample_filename</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">outputID</span></em>, <em class="sig-param"><span class="n">version</span></em>, <em class="sig-param"><span class="n">kind</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.sample_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>When version=’’ and kind=0, returns the original sink filename
+:param jobid: e.g. “3.3.2”, or “XL-VC”
+:type jobid: str
+:param version: description
+:type version: str
+:param kind: 0: sink, 1: Kroupa, 2: Salpeter
+:type kind: int</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.sample_imf">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">sample_imf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdf</span></em>, <em class="sig-param"><span class="n">m_tot</span></em>, <em class="sig-param"><span class="n">m_mean</span><span class="o">=</span><span class="default_value">0.2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.sample_imf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample a cluster of stars with total mass m_tot with a given PDF</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pdf</strong> (<em>function</em>) – The MF</p></li>
+<li><p><strong>m_tot</strong> (<em>double</em>) – total mass to sample to (e.g. the mass of a sink particle to fragment)</p></li>
+<li><p><strong>m_mean</strong> (<em>double</em><em> (</em><em>not used</em><em>)</em>) – The estimated mean mass from pdf</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.sample_masses">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">sample_masses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">masses</span></em>, <em class="sig-param"><span class="n">kind</span><span class="o">=</span><span class="default_value">'sal'</span></em>, <em class="sig-param"><span class="n">m_min</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">m_lower</span><span class="o">=</span><span class="default_value">0.08</span></em>, <em class="sig-param"><span class="n">m_max</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.sample_masses" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>masses</strong> (<em>array</em>) – The masses to sample from</p></li>
+<li><p><strong>kind</strong> (<em>str</em>) – ‘sal’ for salpeter and ‘kro’ for Kroupa sampling recipe</p></li>
+<li><p><strong>m_min</strong> (<em>double</em>) – The lower bound of IMF. 0.0 &lt; m_min &lt; 0.5</p></li>
+<li><p><strong>m_lower</strong> (<em>double</em>) – Only useful when m_min is a string. m_min = max(m_lower, x * m_sink)</p></li>
+<li><p><strong>m_max</strong> (<em>double</em>) – If m_max &lt; 0: use m_sink as m_max</p></li>
+<li><p><strong>**kwargs</strong> (<em>passed to pick_salpeter</em><em> (</em><em>not to pick_kroupa</em><em>) </em><em>to set alpha.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>mass_samp</strong> (<em>array</em>) – The sampled masses</p></li>
+<li><p><strong># n</strong> (<em>list of integers</em>)</p></li>
+<li><p><em>#     Counts of the histogram of the sampled masses</em></p></li>
+<li><p><strong># bins</strong> (<em>list of double</em>)</p></li>
+<li><p><em>#     Bins of the histogram of the sample masses</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.sample_two_powerlaw">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">sample_two_powerlaw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rand</span></em>, <em class="sig-param"><span class="n">a1</span></em>, <em class="sig-param"><span class="n">a2</span></em>, <em class="sig-param"><span class="n">m1</span></em>, <em class="sig-param"><span class="n">m2</span></em>, <em class="sig-param"><span class="n">m3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.sample_two_powerlaw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a random number from 0 to 1, return a sampled mass based the
+following distribution: a broken power law from m1 to m2, m2 to m3,
+with negative slopes a1 and a2</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.test_mean">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">test_mean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.test_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>A driver to test the mean mass of sampling. For Salpeter, INTERP’s ~0.6.</p>
+</dd></dl>
+
+</div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
@@ -715,6 +1200,7 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 <li><a class="reference internal" href="#module-ramtools.ramplot">ramtools ramplot</a></li>
 <li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
 <li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
+<li><a class="reference internal" href="#module-ramtools.imf">ramtools imf</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
