@@ -209,10 +209,37 @@ in DATA_DIR. The second time use of this function will be very fast.</p>
 <li><p><strong>force_redo</strong> – </p></li>
 <li><p><strong>define_field</strong> – (function) a function to define a new field.
 define_field(ds).</p></li>
-<li><p><strong>f</strong> – </p></li>
-<li><p><strong>ax</strong> – </p></li>
+<li><p><strong>f</strong> – plt.figure</p></li>
+<li><p><strong>ax</strong> – plt.axis</p></li>
 <li><p><strong>ret</strong> – (str) return type, one of [‘plot’, ‘data’]. Default: ‘plot’</p></li>
 <li><p><strong>mpl_kwargs</strong> – kwargs to plt.plot</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.ytfast.ProjectionPlot">
+<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">ProjectionPlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="n">axis</span></em>, <em class="sig-param"><span class="n">fields</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">'c'</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">axes_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_level</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">origin</span><span class="o">=</span><span class="default_value">'center-window'</span></em>, <em class="sig-param"><span class="n">tag</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">always_write_h5</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.ProjectionPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as yt.ProjectionPlot but use intermediate data file to speed up
+re-generating the same figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds</strong> – </p></li>
+<li><p><strong>axis</strong> – </p></li>
+<li><p><strong>fields</strong> – </p></li>
+<li><p><strong>center</strong> – </p></li>
+<li><p><strong>width</strong> – </p></li>
+<li><p><strong>axes_unit</strong> – </p></li>
+<li><p><strong>weight_field</strong> – </p></li>
+<li><p><strong>max_level</strong> – </p></li>
+<li><p><strong>origin</strong> – </p></li>
+<li><p><strong>tag</strong> (<em>str</em>) – a tag to this specific job</p></li>
+<li><p><strong>always_write_h5</strong> (<em>bool</em>) – toggle always write a new .h5 data no matter the .h5
+already exits or not</p></li>
+<li><p><strong>**kwargs</strong> – more kwargs passed to yt.ProjectionPlot</p></li>
 </ul>
 </dd>
 </dl>
