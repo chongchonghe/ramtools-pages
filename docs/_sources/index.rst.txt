@@ -60,6 +60,14 @@ ramtools imf
 .. automodule:: ramtools.imf
    :members:
 
+bin plot_projection
+==================================
+An executable to quickly and efficiently plot slices/projections of a given RAMSES simulation. This function is extremely useful for a first analysis of a new simulation. For example, you can do `plot_projection ./Job10 all x,y,z -t ./Job10/figures` to make density slice plots along the x, y, and z axis for all outputs of Job10 and store all the figures in Job10/figures. The figures willl be properly named. More examples:
+
+:code:`plot_projection Job1 all z -t Job1/figures`
+
+:code:`plot_projection Job2 10-20 x,y,z -t Job2/figures -c 0.6,0.6,0,6 -w 10,pc -f den,temp -k slc,prj`
+
 Indices and tables
 ==================================
 
