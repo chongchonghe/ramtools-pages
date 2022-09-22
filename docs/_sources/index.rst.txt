@@ -6,23 +6,25 @@
 Welcome to ramtools's Documentation!
 ====================================
 
-This is a Python module based on YT to post-process simulation data from RAMSES-RT. The code is accessible from this github repository: https://github.com/chongchonghe/ramtools
+This is a Python module based on YT to post-process RAMSES simulation data. The code is accessible from this github repository: https://github.com/chongchonghe/ramtools
 
 Author: Chong-Chong He (che1234 @ umd.edu)
 
 Overview on How to Use this Module
 ==================================
 1. Install required packages (yt)
-2. Either clone this repository and install it via :code:`pip install -e .`
-   or install it from PyPi via :code:`pip install ramtools` (to be published on PyPi, check back later)
+2. Clone this repository and install it via :code:`pip install -e .` inside the code directory.
+
+   ..
+	  or install it from PyPi via :code:`pip install ramtools` (to be published on PyPi, check back later)
 
 Setup procedure
 ==================================
 
 Features of ramtools
 ==================================
-1. Simplify the process of analysing RAMSES data with plenty of highly functional tools
-2. Make sliceplot/projectplot extremely fast by storing intermediate data at first run and reuse it in subsequent runs
+1. Simplify the process of analysing RAMSES data with plenty of powerful tools
+2. Make sliceplot/projectplot extremely fast by storing intermediate data at first run and reuse them in subsequent runs
 
 Documentation for the Code
 ==================================
@@ -30,46 +32,71 @@ Documentation for the Code
    :maxdepth: 2
    :caption: Contents:
 
-ramtools ytfast
-==================================
-.. automodule:: ramtools.ytfast
-   :members:
+Executables in bin/
+----------------------------------
 
-ramtools ramses
-==================================
+plot_projection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:code:`plot_projection` is an executable to efficiently plot
+slices/projections of a given RAMSES simulation. This function is extremely
+useful for a quick first analysis of a new simulation. Run
+`plot_projection` in a folder named, say 'postprocess', inside a job
+directory and it will create density projections and slices along the x, y, and
+z axis for all outputs. The output figures will be stored in `./projections`.
+You can regenerate the figures with different aesthetic settings and the code
+will make use of the cache stored in the job directory from the first run to
+accelerate the image production process. For a complete documentation, do
+:code:`plot_projection -h`.
+
+plot_imf
+^^^^^^^^
+:code:`plot_imf -h`
+
+Modules
+----------------------------------
+
+ytfast
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. automodule:: ramtools.ytfast
+   :members: SlicePlot, ProjectionPlot, ProfilePlot, PhasePlot
+
+ramsesbase
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. automodule:: ramtools.ramsesbase
+   :members: RamsesBase
+
+ramses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: ramtools.ramses
    :members:
 
-ramtools ramplot
-==================================
+ramplot
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: ramtools.ramplot
    :members:
 
-ramtools utilities
-==================================
+utilities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: ramtools.utilities
    :members:
 
-ramtools units
-==================================
+plotutils
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. automodule:: ramtools.plotutils
+   :members:
+
+units
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: ramtools.units
    :members:
 
-ramtools imf
-==================================
+imf
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: ramtools.imf
    :members:
 
-bin plot_projection
-==================================
-An executable to quickly and efficiently plot slices/projections of a given RAMSES simulation. This function is extremely useful for a first analysis of a new simulation. For example, you can do `plot_projection ./Job10 all x,y,z -t ./Job10/figures` to make density slice plots along the x, y, and z axis for all outputs of Job10 and store all the figures in Job10/figures. The figures willl be properly named. More examples:
-
-:code:`plot_projection Job1 all z -t Job1/figures`
-
-:code:`plot_projection Job2 10-20 x,y,z -t Job2/figures -c 0.6,0.6,0,6 -w 10,pc -f den,temp -k slc,prj`
-
 Indices and tables
-==================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * :ref:`genindex`
 * :ref:`modindex`

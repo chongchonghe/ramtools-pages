@@ -53,15 +53,26 @@
 <li><a class="reference internal" href="#overview-on-how-to-use-this-module">Overview on How to Use this Module</a></li>
 <li><a class="reference internal" href="#setup-procedure">Setup procedure</a></li>
 <li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
-<li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
-<li><a class="reference internal" href="#module-ramtools.ytfast">ramtools ytfast</a></li>
-<li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
-<li><a class="reference internal" href="#module-ramtools.ramplot">ramtools ramplot</a></li>
-<li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
-<li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
-<li><a class="reference internal" href="#module-ramtools.imf">ramtools imf</a></li>
-<li><a class="reference internal" href="#bin-plot-projection">bin plot_projection</a></li>
+<li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a><ul>
+<li><a class="reference internal" href="#executables-in-bin">Executables in bin/</a><ul>
+<li><a class="reference internal" href="#plot-projection">plot_projection</a></li>
+<li><a class="reference internal" href="#plot-imf">plot_imf</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modules">Modules</a><ul>
+<li><a class="reference internal" href="#module-ramtools.ytfast">ytfast</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramsesbase">ramsesbase</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramses">ramses</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramplot">ramplot</a></li>
+<li><a class="reference internal" href="#module-ramtools.utilities">utilities</a></li>
+<li><a class="reference internal" href="#module-ramtools.plotutils">plotutils</a></li>
+<li><a class="reference internal" href="#module-ramtools.units">units</a></li>
+<li><a class="reference internal" href="#module-ramtools.imf">imf</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   <div role="note" aria-label="source link">
@@ -130,15 +141,15 @@
             
   <div class="section" id="welcome-to-ramtools-s-documentation">
 <h1>Welcome to ramtools’s Documentation!<a class="headerlink" href="#welcome-to-ramtools-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>This is a Python module based on YT to post-process simulation data from RAMSES-RT. The code is accessible from this github repository: <a class="reference external" href="https://github.com/chongchonghe/ramtools">https://github.com/chongchonghe/ramtools</a></p>
+<p>This is a Python module based on YT to post-process RAMSES simulation data. The code is accessible from this github repository: <a class="reference external" href="https://github.com/chongchonghe/ramtools">https://github.com/chongchonghe/ramtools</a></p>
 <p>Author: Chong-Chong He (che1234 &#64; umd.edu)</p>
 </div>
 <div class="section" id="overview-on-how-to-use-this-module">
 <h1>Overview on How to Use this Module<a class="headerlink" href="#overview-on-how-to-use-this-module" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
 <li><p>Install required packages (yt)</p></li>
-<li><p>Either clone this repository and install it via <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>
-or install it from PyPi via <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ramtools</span></code> (to be published on PyPi, check back later)</p></li>
+<li><p>Clone this repository and install it via <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> inside the code directory.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="setup-procedure">
@@ -147,35 +158,54 @@ or install it from PyPi via <code class="code docutils literal notranslate"><spa
 <div class="section" id="features-of-ramtools">
 <h1>Features of ramtools<a class="headerlink" href="#features-of-ramtools" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li><p>Simplify the process of analysing RAMSES data with plenty of highly functional tools</p></li>
-<li><p>Make sliceplot/projectplot extremely fast by storing intermediate data at first run and reuse it in subsequent runs</p></li>
+<li><p>Simplify the process of analysing RAMSES data with plenty of powerful tools</p></li>
+<li><p>Make sliceplot/projectplot extremely fast by storing intermediate data at first run and reuse them in subsequent runs</p></li>
 </ol>
 </div>
 <div class="section" id="documentation-for-the-code">
 <h1>Documentation for the Code<a class="headerlink" href="#documentation-for-the-code" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<div class="section" id="executables-in-bin">
+<h2>Executables in bin/<a class="headerlink" href="#executables-in-bin" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="plot-projection">
+<h3>plot_projection<a class="headerlink" href="#plot-projection" title="Permalink to this headline">¶</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">plot_projection</span></code> is an executable to efficiently plot
+slices/projections of a given RAMSES simulation. This function is extremely
+useful for a quick first analysis of a new simulation. Run
+<cite>plot_projection</cite> in a folder named, say ‘postprocess’, inside a job
+directory and it will create density projections and slices along the x, y, and
+z axis for all outputs. The output figures will be stored in <cite>./projections</cite>.
+You can regenerate the figures with different aesthetic settings and the code
+will make use of the cache stored in the job directory from the first run to
+accelerate the image production process. For a complete documentation, do
+<code class="code docutils literal notranslate"><span class="pre">plot_projection</span> <span class="pre">-h</span></code>.</p>
 </div>
+<div class="section" id="plot-imf">
+<h3>plot_imf<a class="headerlink" href="#plot-imf" title="Permalink to this headline">¶</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">plot_imf</span> <span class="pre">-h</span></code></p>
+</div>
+</div>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-ramtools.ytfast">
-<span id="ramtools-ytfast"></span><h1>ramtools ytfast<a class="headerlink" href="#module-ramtools.ytfast" title="Permalink to this headline">¶</a></h1>
+<span id="ytfast"></span><h3>ytfast<a class="headerlink" href="#module-ramtools.ytfast" title="Permalink to this headline">¶</a></h3>
 <p>A general wrapper to make some fo the common yt functions more
 efficient by reusing intermediate data</p>
 <p>General-purpose yt wrappers. Apply to any data that yt supports.</p>
 <dl class="py function">
 <dt id="ramtools.ytfast.PhasePlot">
 <code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">PhasePlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_source</span></em>, <em class="sig-param"><span class="n">x_field</span></em>, <em class="sig-param"><span class="n">y_field</span></em>, <em class="sig-param"><span class="n">z_fields</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_bins</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">y_bins</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">accumulation</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fractional</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fontsize</span><span class="o">=</span><span class="default_value">18</span></em>, <em class="sig-param"><span class="n">figure_size</span><span class="o">=</span><span class="default_value">8.0</span></em>, <em class="sig-param"><span class="n">shading</span><span class="o">=</span><span class="default_value">'nearest'</span></em>, <em class="sig-param"><span class="n">extrema</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlims</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">define_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_cb</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">'viridis'</span></em>, <em class="sig-param"><span class="n">cb_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ret</span><span class="o">=</span><span class="default_value">'imshow'</span></em>, <em class="sig-param"><span class="n">is_pcc</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.PhasePlot" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>A wrapper to yt.PhasePlot to use cache file to speed up
+re-production of a figure with different aesthetic settings like
+new colormap, different zlim, etc. For the use of yt.PhasePlot, check <a class="reference external" href="https://yt-project.org/doc/reference/api/yt.visualization.profile_plotter.html?highlight=phaseplot#yt.visualization.profile_plotter.PhasePlot">the
+official documentation</a></p>
+<p>The following Args are in addition to the parameters of yt.PhasePlot.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args passed to yt.PhasePlot</strong> (<em>#</em>) – </p></li>
-<li><p><strong>data_source</strong> (<em>YTSelectionContainer Object</em>) – </p></li>
-<li><p><strong>x_field</strong> (<em>tuple</em>) – </p></li>
-<li><p><strong>y_field</strong> (<em>tuple</em>) – </p></li>
-<li><p><strong>z_fields</strong> (<em>list of tuples</em>) – </p></li>
-<li><p><strong>weight_field</strong> (<em>tuple</em>) – </p></li>
-<li><p><strong>args passed to yt.PhasePlot</strong> – </p></li>
 <li><p><strong>zlims</strong> (<em>list_like</em>) – lims of z_fields</p></li>
-<li><p><strong>force_redo</strong> (<em>bool</em>) – toggle always make h5 data</p></li>
+<li><p><strong>force_redo</strong> (<em>bool</em>) – toggle always remake the figure</p></li>
 <li><p><strong>define_field</strong> (<em>func</em>) – function to define a new field</p></li>
 <li><p><strong>is_cb</strong> (<em>bool</em>) – toggle show colorbar (default: True)</p></li>
 <li><p><strong>cb_label</strong> (<em>str</em>) – colorbar label (default: ‘’)</p></li>
@@ -190,79 +220,260 @@ efficient by reusing intermediate data</p>
 <dl class="py function">
 <dt id="ramtools.ytfast.ProfilePlot">
 <code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">ProfilePlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_source</span></em>, <em class="sig-param"><span class="n">x_field</span></em>, <em class="sig-param"><span class="n">y_fields</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">'gas', 'mass'</span></em>, <em class="sig-param"><span class="n">n_bins</span><span class="o">=</span><span class="default_value">64</span></em>, <em class="sig-param"><span class="n">accumulation</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fractional</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">plot_spec</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_log</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">y_log</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">xlims</span><span class="o">=</span><span class="default_value">[None, None]</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">define_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ret</span><span class="o">=</span><span class="default_value">'plot'</span></em>, <em class="sig-param"><span class="n">mpl_kwargs</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.ProfilePlot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make 1D profile plot (histogram). Will save intermediate data as h5 files
-in DATA_DIR. The second time use of this function will be very fast.</p>
+<dd><p>A wrapper to yt.ProfilePlot to use cache file to speed up
+re-production of a figure with different aesthetic settings. For the use
+of yt.ProfilePlot, check <a class="reference external" href="https://yt-project.org/doc/reference/api/yt.visualization.profile_plotter.html?highlight=phaseplot#yt.visualization.profile_plotter.ProfilePlot">the official documentation</a></p>
+<p>The following Args are in addition to the parameters of yt.ProfilePlot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data_source</strong> – </p></li>
-<li><p><strong>x_field</strong> – </p></li>
-<li><p><strong>y_fields</strong> – </p></li>
-<li><p><strong>weight_field</strong> – </p></li>
-<li><p><strong>n_bins</strong> – </p></li>
-<li><p><strong>accumulation</strong> – </p></li>
-<li><p><strong>fractional</strong> – </p></li>
-<li><p><strong>label</strong> – </p></li>
-<li><p><strong>plot_spec</strong> – </p></li>
-<li><p><strong>x_log</strong> – </p></li>
-<li><p><strong>y_log</strong> – </p></li>
-<li><p><strong>xlims</strong> – </p></li>
-<li><p><strong>force_redo</strong> – </p></li>
-<li><p><strong>define_field</strong> – (function) a function to define a new field.
-define_field(ds).</p></li>
-<li><p><strong>f</strong> – plt.figure</p></li>
-<li><p><strong>ax</strong> – plt.axis</p></li>
-<li><p><strong>ret</strong> – (str) return type, one of [‘plot’, ‘data’]. Default: ‘plot’</p></li>
+<li><p><strong>xlims</strong> (<em>list_like</em>) – x limits</p></li>
+<li><p><strong>force_redo</strong> (<em>bool</em>) – toggle always remake the figure</p></li>
+<li><p><strong>define_field</strong> (<em>func</em>) – a function to define a new field.</p></li>
+<li><p><strong>f</strong> (<em>plt.figure</em>) – figure to plot on (default: None)</p></li>
+<li><p><strong>ax</strong> (<em>plt.axis</em>) – axis to plot on (default: None)</p></li>
+<li><p><strong>ret</strong> (<em>str</em>) – what to return (default: ‘plot’). One of [‘plot’, ‘data’]</p></li>
 <li><p><strong>mpl_kwargs</strong> – kwargs to plt.plot</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If ret == ‘plot’, return a tuple (f, ax)
+If ret == ‘data’, return a tuple (x, y)</p>
+</dd>
 </dl>
-<p>Returns:</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="ramtools.ytfast.ProjectionPlot">
-<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">ProjectionPlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="n">axis</span></em>, <em class="sig-param"><span class="n">fields</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">'c'</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">axes_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_level</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">origin</span><span class="o">=</span><span class="default_value">'center-window'</span></em>, <em class="sig-param"><span class="n">tag</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">always_write_h5</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.ProjectionPlot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Same as yt.ProjectionPlot but use intermediate data file to speed up
-re-generating the same figure.</p>
+<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">ProjectionPlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="n">axis</span></em>, <em class="sig-param"><span class="n">fields</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">'c'</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">axes_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_level</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.ProjectionPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper to yt.ProjectionPlot to use cache file to speed up
+re-production of a figure with different aesthetic settings like
+new colormap, different zlim, overplotting sink particles, etc.
+For the use of yt.ProjectionPlot, check <a class="reference external" href="https://yt-project.org/doc/reference/api/yt.visualization.plot_window.html#yt.visualization.plot_window.ProjectionPlot">the official documentation</a></p>
+<p>The following Args are in addition to the parameters of yt.ProjectionPlot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ds</strong> – </p></li>
-<li><p><strong>axis</strong> – </p></li>
-<li><p><strong>fields</strong> – </p></li>
-<li><p><strong>center</strong> – </p></li>
-<li><p><strong>width</strong> – </p></li>
-<li><p><strong>axes_unit</strong> – </p></li>
-<li><p><strong>weight_field</strong> – </p></li>
-<li><p><strong>max_level</strong> – </p></li>
-<li><p><strong>origin</strong> – </p></li>
-<li><p><strong>tag</strong> (<em>str</em>) – a tag to this specific job</p></li>
-<li><p><strong>always_write_h5</strong> (<em>bool</em>) – toggle always write a new .h5 data no matter the .h5
-already exits or not</p></li>
+<li><p><strong>force_redo</strong> (<em>bool</em>) – toggle always remake the figure and write a new .h5
+file no matter the .h5 exits or not.</p></li>
 <li><p><strong>**kwargs</strong> – more kwargs passed to yt.ProjectionPlot</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A PWViewerMPL object containing the plot. See the official
+documentation of YT for details.</p>
+</dd>
 </dl>
-<p>Returns:</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="ramtools.ytfast.dict_hash">
-<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">dict_hash</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dictionary</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#ramtools.ytfast.dict_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>MD5 hash of a dictionary.</p>
+<dt id="ramtools.ytfast.SlicePlot">
+<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">SlicePlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">'c'</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.SlicePlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper to yt.SlicePlot to use cache file to speed up
+re-production of a figure with different aesthetic settings like
+new colormap, different zlim, overplotting sink particles, etc.
+For the use of yt.SlicePlot, check <a class="reference external" href="https://yt-project.org/doc/reference/api/yt.visualization.plot_window.html#yt.visualization.plot_window.SlicePlot">the official documentation</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>force_redo</strong> (<em>bool</em>) – toggle always remake the figure and write a new .h5
+file no matter the .h5 exits or not.</p></li>
+<li><p><strong>**kwargs</strong> – more kwargs passed to yt.SlicePlot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A PWViewerMPL object containing the plot. See the official
+documentation of YT for details.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py function">
-<dt id="ramtools.ytfast.get_jobdir_and_out_from_ds">
-<code class="sig-prename descclassname">ramtools.ytfast.</code><code class="sig-name descname">get_jobdir_and_out_from_ds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ytfast.get_jobdir_and_out_from_ds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given ds, which has ds.directory = ‘/path/Job1/output_00002’, return
-/path/Job1 and output_00002</p>
+</div>
+<div class="section" id="module-ramtools.ramsesbase">
+<span id="ramsesbase"></span><h3>ramsesbase<a class="headerlink" href="#module-ramtools.ramsesbase" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="ramtools.ramsesbase.RamsesBase">
+<em class="property">class </em><code class="sig-prename descclassname">ramtools.ramsesbase.</code><code class="sig-name descname">RamsesBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span></em>, <em class="sig-param"><span class="n">fields</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the core of ramtools. Most of the times, you want to start ramtools
+by declaring this class.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ramtools</span> <span class="k">as</span> <span class="nn">rt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">rt</span><span class="o">.</span><span class="n">Ramses</span><span class="p">(</span><span class="s2">&quot;../tests/Job_test&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">par</span> <span class="o">=</span> <span class="n">ram</span><span class="o">.</span><span class="n">get_sink_particles</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mass</span> <span class="o">=</span> <span class="n">par</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total mass =&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">rt</span><span class="o">.</span><span class="n">Ramses</span><span class="p">(</span><span class="s2">&quot;Job1&quot;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="n">FIELDS</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.get_ds">
+<code class="sig-name descname">get_ds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.get_ds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the first output out there. This is necessary to get the units
+and other things</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.get_info_path">
+<code class="sig-name descname">get_info_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.get_info_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path to info_out.txt</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.get_sink_masses">
+<code class="sig-name descname">get_sink_masses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.get_sink_masses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get sink masses in M_sun of one output (not shifted)
+Replacing get_sink_mass</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>an array of shape (n, ) containing the particle masses in</dt><dd><p><strong>solar mass</strong>.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – </p></li>
+<li><p><a class="reference internal" href="ramtools.html#ramtools.ramsesbase.NoSinkParticle" title="ramtools.ramsesbase.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.get_sink_particles">
+<code class="sig-name descname">get_sink_particles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.get_sink_particles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>(n, 7) array containing the sink</dt><dd><p>parameters, where n is the number of particles and the 7
+columns are: [m, x, y, z, vx, vy, vx], all in code units</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>particles (array)</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – </p></li>
+<li><p><a class="reference internal" href="ramtools.html#ramtools.ramsesbase.NoSinkParticle" title="ramtools.ramsesbase.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.get_sink_path">
+<code class="sig-name descname">get_sink_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.get_sink_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path to sink_*.csv</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.get_sink_positions">
+<code class="sig-name descname">get_sink_positions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.get_sink_positions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>an array with shape (n, 3) containing the particle positions</dt><dd><p>in code unit</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – </p></li>
+<li><p><a class="reference internal" href="ramtools.html#ramtools.ramsesbase.NoSinkParticle" title="ramtools.ramsesbase.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.get_time">
+<code class="sig-name descname">get_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">readinfo</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.get_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the time in Myr (not substracting t_relax) of data_id.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.get_units">
+<code class="sig-name descname">get_units</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.get_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the following units for this job:</p>
+<ol class="arabic simple">
+<li><p>unit_l: this is the boxlen (in cm), which equals to unit_l_code * boxlen</p></li>
+<li><p>unit_l_code: this is the actually length unit (in cm)</p></li>
+<li><p>unit_d: dnesity unit in cgs</p></li>
+<li><p>unit_t: time unit in cgs</p></li>
+<li><p>unit_v: velocity unit in cgs</p></li>
+<li><p>unit_m: mass unit in cgs</p></li>
+<li><p>unit_m_in_Msun: mass unit in Msun</p></li>
+<li><p>kin_ene_in_cgs: kinectic energy in cgs</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.load_ds">
+<code class="sig-name descname">load_ds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.load_ds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a yt.load instance of the frame <cite>out</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.overplot_sink">
+<code class="sig-name descname">overplot_sink</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">plot_args</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.overplot_sink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Over plot sink particles (as green crosses) on top of a YT
+slice/project plot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>yt.sliceplot</em><em> or </em><em>yt.projectplot</em>) – the plot to overplot on</p></li>
+<li><p><strong>out</strong> (<em>int</em>) – the output frame</p></li>
+<li><p><strong>plot_args</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ramtools.ramsesbase.RamsesBase.overplot_sink_with_id">
+<code class="sig-name descname">overplot_sink_with_id</code><span class="sig-paren">(</span><em class="sig-param">plot, out, center, radius, is_id=True, colors=&lt;matplotlib.colors.LinearSegmentedColormap object&gt;, withedge=False, zorder='time', lims=[0.01, 100.0]</em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramsesbase.RamsesBase.overplot_sink_with_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot</strong> (<em>yt plot</em>) – the plot to overplot on</p></li>
+<li><p><strong>out</strong> (<em>int</em>) – the output frame</p></li>
+<li><p><strong>center</strong> (<em>tuple</em><em> or </em><em>list</em>) – the center of the plot in boxlen units</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – the radius (half width) of the box around
+the center defining the domain of interest, in boxlen units</p></li>
+<li><p><strong>weight</strong> (<em>str</em>) – give weights to the annotates of the sink particles
+by the ‘time’ of creation, or by their ‘mass’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
 <div class="section" id="module-ramtools.ramses">
-<span id="ramtools-ramses"></span><h1>ramtools ramses<a class="headerlink" href="#module-ramtools.ramses" title="Permalink to this headline">¶</a></h1>
+<span id="ramses"></span><h3>ramses<a class="headerlink" href="#module-ramtools.ramses" title="Permalink to this headline">¶</a></h3>
 <p>Defines the Ramses class, the core of ramtools.</p>
 <dl class="py attribute">
 <dt id="ramtools.ramses.RAM_DIR">
@@ -275,29 +486,12 @@ already exits or not</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py exception">
-<dt id="ramtools.ramses.NoSinkParticle">
-<em class="property">exception </em><code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">NoSinkParticle</code><a class="headerlink" href="#ramtools.ramses.NoSinkParticle" title="Permalink to this definition">¶</a></dt>
-<dd><p>exception: no sink particle found in an output or a .csv file.</p>
-</dd></dl>
-
 <dl class="py class">
 <dt id="ramtools.ramses.Ramses">
-<em class="property">class </em><code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">Ramses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is the core of ramtools. Most of the times, start using ramtools
-by claiming this class.</p>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ramtools</span> <span class="k">as</span> <span class="nn">rt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">rt</span><span class="o">.</span><span class="n">Ramses</span><span class="p">(</span><span class="s2">&quot;../tests/Job_test&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">par</span> <span class="o">=</span> <span class="n">ram</span><span class="o">.</span><span class="n">get_sink_particles</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mass</span> <span class="o">=</span> <span class="n">par</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total mass =&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rt</span><span class="o">.</span><span class="n">set_RAM_DIR</span><span class="p">(</span><span class="s2">&quot;../tests&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">rt</span><span class="o">.</span><span class="n">Ramses</span><span class="p">(</span><span class="n">jobid</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
+<em class="property">class </em><code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">Ramses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fields</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherit from RamsesBase for the use of the author’s personal use. The
+methods defined in this class may not work for another person’s RAMSES
+simulations.</p>
 <dl class="py method">
 <dt id="ramtools.ramses.Ramses.find_formation_pos_from_movie">
 <code class="sig-name descname">find_formation_pos_from_movie</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sinkid</span></em>, <em class="sig-param"><span class="n">msg</span><span class="o">=</span><span class="default_value">'off'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.find_formation_pos_from_movie" title="Permalink to this definition">¶</a></dt>
@@ -318,19 +512,6 @@ and stops accreting.</p>
 <dd class="field-odd"><p>array</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_ds">
-<code class="sig-name descname">get_ds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_ds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load the first output out there. This is necessary to get the units
-and other things</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_info_path">
-<code class="sig-name descname">get_info_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_info_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the path to info_out.txt</p>
 </dd></dl>
 
 <dl class="py method">
@@ -371,165 +552,26 @@ and other things</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_sink_masses">
-<code class="sig-name descname">get_sink_masses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputID</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_masses" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get sink masses in M_sun of one output (not shifted)
-Replacing get_sink_mass</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>an array of shape (n, ) containing the particle masses in</dt><dd><p><strong>solar mass</strong>.</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>array</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>FileNotFoundError</strong> – </p></li>
-<li><p><a class="reference internal" href="#ramtools.ramses.NoSinkParticle" title="ramtools.ramses.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_sink_particles">
-<code class="sig-name descname">get_sink_particles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_particles" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>(n, 7) array containing the sink</dt><dd><p>parameters, where n is the number of particles and the 7
-columns are: [m, x, y, z, vx, vy, vx], all in code units</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>particles (array)</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>FileNotFoundError</strong> – </p></li>
-<li><p><a class="reference internal" href="#ramtools.ramses.NoSinkParticle" title="ramtools.ramses.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_sink_path">
-<code class="sig-name descname">get_sink_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the path to sink_*.csv</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_sink_positions">
-<code class="sig-name descname">get_sink_positions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_sink_positions" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>out</strong> (<em>int</em>) – the output frame</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>an array with shape (n, 3) containing the particle positions</dt><dd><p>in code unit</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>array</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>FileNotFoundError</strong> – </p></li>
-<li><p><a class="reference internal" href="#ramtools.ramses.NoSinkParticle" title="ramtools.ramses.NoSinkParticle"><strong>NoSinkParticle</strong></a> – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_time">
-<code class="sig-name descname">get_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputID</span></em>, <em class="sig-param"><span class="n">readinfo</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the time in Myr (not substracting t_relax) of data_id.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.get_units">
-<code class="sig-name descname">get_units</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.get_units" title="Permalink to this definition">¶</a></dt>
-<dd><p>Define the following units for this job:</p>
-<ol class="arabic simple">
-<li><p>unit_l: this is the boxlen (in cm), which equals to unit_l_code * boxlen</p></li>
-<li><p>unit_l_code: this is the actually length unit (in cm)</p></li>
-<li><p>unit_d: dnesity unit in cgs</p></li>
-<li><p>unit_t: time unit in cgs</p></li>
-<li><p>unit_v: velocity unit in cgs</p></li>
-<li><p>unit_m: mass unit in cgs</p></li>
-<li><p>unit_m_in_Msun: mass unit in Msun</p></li>
-<li><p>kin_ene_in_cgs: kinectic energy in cgs</p></li>
-</ol>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.load_ds">
-<code class="sig-name descname">load_ds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.load_ds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a yt.load instance of the frame <cite>out</cite></p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.overplot_sink">
-<code class="sig-name descname">overplot_sink</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">plot_args</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.overplot_sink" title="Permalink to this definition">¶</a></dt>
-<dd><p>Over plot sink particles (as green crosses) on top of a YT
-slice/project plot</p>
+<dt id="ramtools.ramses.Ramses.overplot_time_tag">
+<code class="sig-name descname">overplot_time_tag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">timeshift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">loc</span><span class="o">=</span><span class="default_value">'upper left'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.overplot_time_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overplot time tag on top-left corner</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>yt.sliceplot</em><em> or </em><em>yt.projectplot</em>) – the plot to overplot on</p></li>
-<li><p><strong>out</strong> (<em>int</em>) – the output frame</p></li>
-<li><p><strong>plot_args</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>ax</strong> – </p></li>
+<li><p><strong>out</strong> – </p></li>
+<li><p><strong>timeshift</strong> – </p></li>
 </ul>
 </dd>
 </dl>
+<p>Returns:</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="ramtools.ramses.Ramses.overplot_sink_with_id">
-<code class="sig-name descname">overplot_sink_with_id</code><span class="sig-paren">(</span><em class="sig-param">plot, out, center, radius, is_id=True, colors=&lt;matplotlib.colors.LinearSegmentedColormap object&gt;, withedge=False, zorder='time', lims=[0.01, 100.0]</em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.Ramses.overplot_sink_with_id" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>plot</strong> (<em>yt plot</em>) – the plot to overplot on</p></li>
-<li><p><strong>out</strong> (<em>int</em>) – the output frame</p></li>
-<li><p><strong>center</strong> (<em>tuple</em><em> or </em><em>list</em>) – the center of the plot in boxlen units</p></li>
-<li><p><strong>radius</strong> (<em>float</em>) – the radius (half width) of the box around
-the center defining the domain of interest, in boxlen units</p></li>
-<li><p><strong>weight</strong> (<em>str</em>) – give weights to the annotates of the sink particles
-by the ‘time’ of creation, or by their ‘mass’</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt id="ramtools.ramses.set_RAM_DIR">
-<code class="sig-prename descclassname">ramtools.ramses.</code><code class="sig-name descname">set_RAM_DIR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ram_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramses.set_RAM_DIR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the global variable RAM_DIR. Check Ramses.__init__ for its usage.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="module-ramtools.ramplot">
-<span id="ramtools-ramplot"></span><h1>ramtools ramplot<a class="headerlink" href="#module-ramtools.ramplot" title="Permalink to this headline">¶</a></h1>
+<span id="ramplot"></span><h3>ramplot<a class="headerlink" href="#module-ramtools.ramplot" title="Permalink to this headline">¶</a></h3>
 <p>Some utilities to make figures.</p>
 <dl class="py attribute">
 <dt>
@@ -538,7 +580,7 @@ by the ‘time’ of creation, or by their ‘mass’</p></li>
 
 <dl class="py class">
 <dt id="ramtools.ramplot.RamPlot">
-<em class="property">class </em><code class="sig-prename descclassname">ramtools.ramplot.</code><code class="sig-name descname">RamPlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ramtools.ramplot.</code><code class="sig-name descname">RamPlot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fields</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt id="ramtools.ramplot.RamPlot.plot_2d_profile">
 <code class="sig-name descname">plot_2d_profile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">center</span></em>, <em class="sig-param"><span class="n">radius</span></em>, <em class="sig-param"><span class="n">field_x</span></em>, <em class="sig-param"><span class="n">field_y</span></em>, <em class="sig-param"><span class="n">field</span></em>, <em class="sig-param"><span class="n">ds</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lims</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">vlims</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">with_cb</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">force_redo</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">define_field</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.RamPlot.plot_2d_profile" title="Permalink to this definition">¶</a></dt>
@@ -633,21 +675,6 @@ tuple containing a number and unit, e.g. (0.1, ‘pc’)</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="ramtools.ramplot.den_setup">
-<code class="sig-prename descclassname">ramtools.ramplot.</code><code class="sig-name descname">den_setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">time_offset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mu</span><span class="o">=</span><span class="default_value">1.4</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">'number_density'</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">'density'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.ramplot.den_setup" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>YT plot</em>) – </p></li>
-<li><p><strong>zlim</strong> (<em>tuple</em>) – limits of the field</p></li>
-<li><p><strong>mu</strong> (<em>float</em>) – the mean particle weight. The mass density rho = mu * n</p></li>
-<li><p><strong>quant</strong> (<em>str</em>) – ‘volume’ or ‘column’ for volumetric and column density</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="ramtools.ramplot.dict_hash">
 <code class="sig-prename descclassname">ramtools.ramplot.</code><code class="sig-name descname">dict_hash</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dictionary</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#ramtools.ramplot.dict_hash" title="Permalink to this definition">¶</a></dt>
 <dd><p>MD5 hash of a dictionary.</p>
@@ -700,7 +727,7 @@ bigger. Default: True.</p></li>
 
 </div>
 <div class="section" id="module-ramtools.utilities">
-<span id="ramtools-utilities"></span><h1>ramtools utilities<a class="headerlink" href="#module-ramtools.utilities" title="Permalink to this headline">¶</a></h1>
+<span id="utilities"></span><h3>utilities<a class="headerlink" href="#module-ramtools.utilities" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="ramtools.utilities.get_sink_info_from_movie1">
 <code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_sink_info_from_movie1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">movie_dir</span></em>, <em class="sig-param"><span class="n">sinkid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_sink_info_from_movie1" title="Permalink to this definition">¶</a></dt>
@@ -760,8 +787,24 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="ramtools.utilities.get_unit_B">
-<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_unit_B</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_unit_B" title="Permalink to this definition">¶</a></dt>
+<dt id="ramtools.utilities.get_unit_B_new">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_unit_B_new</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_unit_B_new" title="Permalink to this definition">¶</a></dt>
+<dd><p>NEW: the original version was wrong
+Get the unit of B field strength.</p>
+<p>[B] = sqrt(4pi) * [v] * [sqrt(rho)]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the unit of B in cgs units</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>YT.unit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.utilities.get_unit_B_wrong">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">get_unit_B_wrong</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.get_unit_B_wrong" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the unit of B field strength</p>
 <p><span class="math notranslate nohighlight">\(1 \ \mathrm{Gauss} = \sqrt{{g} / {cm}} / s, u_B = B^2 / 8 \pi\)</span></p>
 <dl class="field-list simple">
@@ -802,9 +845,86 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 &gt;&gt;&gt; ds = my_yt_load(“tests/Job1”, 1)</p>
 </dd></dl>
 
+<dl class="py function">
+<dt id="ramtools.utilities.read_zoom_center">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">read_zoom_center</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nml</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.read_zoom_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the namelist file nml, return the center of the zoom</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.utilities.read_zoom_radius">
+<code class="sig-prename descclassname">ramtools.utilities.</code><code class="sig-name descname">read_zoom_radius</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nml</span></em>, <em class="sig-param"><span class="n">idx</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.utilities.read_zoom_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the namelist file nml, return the radius of the zoom region (with maximum l_max</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ramtools.plotutils">
+<span id="plotutils"></span><h3>plotutils<a class="headerlink" href="#module-ramtools.plotutils" title="Permalink to this headline">¶</a></h3>
+<p>Plot utilities for RAMSES outputs</p>
+<p class="rubric">Example</p>
+<dl class="py function">
+<dt id="ramtools.plotutils.den_setup">
+<code class="sig-prename descclassname">ramtools.plotutils.</code><code class="sig-name descname">den_setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">time_offset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mu</span><span class="o">=</span><span class="default_value">1.4</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">'number_density'</span></em>, <em class="sig-param"><span class="n">weight_field</span><span class="o">=</span><span class="default_value">'density'</span></em>, <em class="sig-param"><span class="n">is_time</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.plotutils.den_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>YT plot</em>) – </p></li>
+<li><p><strong>zlim</strong> (<em>tuple</em>) – limits of the field</p></li>
+<li><p><strong>mu</strong> (<em>float</em>) – the mean particle weight. The mass density rho = mu * n</p></li>
+<li><p><strong>quant</strong> (<em>str</em>) – ‘volume’ or ‘column’ for volumetric and column density</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.plotutils.overplot_time_tag">
+<code class="sig-prename descclassname">ramtools.plotutils.</code><code class="sig-name descname">overplot_time_tag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">loc</span><span class="o">=</span><span class="default_value">'upper left'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.plotutils.overplot_time_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overplot time tag on top-left corner</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>float</em>) – </p></li>
+<li><p><strong>ax</strong> – </p></li>
+<li><p><strong>loc</strong> (<em>str</em>) – one of ‘upper left’, ‘upper right’, ‘upper center’</p></li>
+<li><p><strong>timeshift</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.plotutils.plot_prj">
+<code class="sig-prename descclassname">ramtools.plotutils.</code><code class="sig-name descname">plot_prj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="n">center</span></em>, <em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">sinks</span></em>, <em class="sig-param"><span class="n">field</span><span class="o">=</span><span class="default_value">'density'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'x'</span></em>, <em class="sig-param"><span class="n">axis_unit</span><span class="o">=</span><span class="default_value">'pc'</span></em>, <em class="sig-param"><span class="n">kind</span><span class="o">=</span><span class="default_value">'prj'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.plotutils.plot_prj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds</strong> – YT ds instance, e.g. ds = yt.load(…)</p></li>
+<li><p><strong>center</strong> – center in boxlen units (0, 1)</p></li>
+<li><p><strong>width</strong> – width in boxlen units</p></li>
+<li><p><strong>sinks</strong> (<em>n-by-3 array</em>) – position of the sink particles in code units</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.plotutils.quick_plot_prj">
+<code class="sig-prename descclassname">ramtools.plotutils.</code><code class="sig-name descname">quick_plot_prj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="n">sinks</span></em>, <em class="sig-param"><span class="n">field</span><span class="o">=</span><span class="default_value">'density'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'z'</span></em>, <em class="sig-param"><span class="n">use_h5</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.plotutils.quick_plot_prj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds</strong> – YT ds instance, e.g. ds = yt.load(…)</p></li>
+<li><p><strong>sinks</strong> (<em>n-by-3 array</em>) – position of the sink particles in code units</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-ramtools.units">
-<span id="ramtools-units"></span><h1>ramtools units<a class="headerlink" href="#module-ramtools.units" title="Permalink to this headline">¶</a></h1>
+<span id="units"></span><h3>units<a class="headerlink" href="#module-ramtools.units" title="Permalink to this headline">¶</a></h3>
 <dl class="simple">
 <dt>Define the following constants in cgs units:</dt><dd><ul class="simple">
 <li><p>all constants in con_list</p></li>
@@ -816,17 +936,17 @@ masses of sink particle #3 (starting from 0) over <cite>times</cite>.</p>
 <p>&#64;author: chongchonghe</p>
 </div>
 <div class="section" id="module-ramtools.imf">
-<span id="ramtools-imf"></span><h1>ramtools imf<a class="headerlink" href="#module-ramtools.imf" title="Permalink to this headline">¶</a></h1>
+<span id="imf"></span><h3>imf<a class="headerlink" href="#module-ramtools.imf" title="Permalink to this headline">¶</a></h3>
 <p>imf.py</p>
 <p>Author: Chong-Chong He (<a class="reference external" href="mailto:che1234&#37;&#52;&#48;umd&#46;edu">che1234<span>&#64;</span>umd<span>&#46;</span>edu</a>)
 Written on Sat,  4 Apr 2020.</p>
 <dl class="py class">
 <dt id="ramtools.imf.Sink">
-<em class="property">class </em><code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">Sink</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">Sink</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ram_dir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fields</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read sink info from outputs, make plots of SFE, sink number, and IMF</p>
 <dl class="py method">
 <dt id="ramtools.imf.Sink.MassFunc">
-<code class="sig-name descname">MassFunc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bins</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">outputID</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tff</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_x_log_number</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_plot_kroupa</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">isFill</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">plotstyle</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.MassFunc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">MassFunc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bins</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">outputID</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tff</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_x_log_number</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_plot_kroupa</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">isFill</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">newsink</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">plotstyle</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.MassFunc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the mass function
 kwargs could be: refPoint = [x_start, x_end], bin_max, bin_min,
 nbins, xlim, ylim, (ALL IN DEX), isDisplayMSM(bool)</p>
@@ -843,17 +963,20 @@ nbins, xlim, ylim, (ALL IN DEX), isDisplayMSM(bool)</p>
 <dt id="ramtools.imf.Sink.find_SNs">
 <code class="sig-name descname">find_SNs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lastoutput</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mSN</span><span class="o">=</span><span class="default_value">8.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.find_SNs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the raw time (in Myr) of all SN explosions
-!!! Apply to the version of RAMSES where all stars never die.
-:returns: * <strong>time</strong> (<em>{list}, the time of all SNe explosions, not necessary on</em>)</p>
-<blockquote>
-<div><ul class="simple">
+!!! Apply to the version of RAMSES where all stars never die.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>time</strong> (<em>{list}, the time of all SNe explosions, not necessary on</em>)</p></li>
 <li><p><em>output snapshots, before the lastoutput, when the first SN</em></p></li>
 <li><p><em>explode</em></p></li>
 <li><p><strong>i</strong> (<em>the outputID when the first SN explode</em>)</p></li>
 <li><p><em>Exeptions</em></p></li>
 <li><p><em>-1, 0</em></p></li>
 </ul>
-</div></blockquote>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -902,7 +1025,7 @@ Normalized to total stellar mass</p>
 <li><p><strong>out</strong> (<em>int</em>) – output number. Default: self.get_last_output()</p></li>
 <li><p><strong>bins</strong> (<em>str</em><em> or </em><em>list/array</em>) – description</p></li>
 <li><p><strong>is_over_dlogm</strong> (<em>bool</em>) – False: y = dN. True: y = dN/dlogm</p></li>
-<li><p><strong>kwargs</strong> – <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs for plot_imf()</p></li>
+<li><p><strong>kwargs</strong> – <cite>**kwargs</cite> for plot_imf()</p></li>
 </ul>
 </dd>
 </dl>
@@ -917,15 +1040,15 @@ Normalized to total stellar mass</p>
 <dl class="py method">
 <dt id="ramtools.imf.Sink.plot_imf_one_grid_single_line">
 <code class="sig-name descname">plot_imf_one_grid_single_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">outputid</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">'k'</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mass_shift</span><span class="o">=</span><span class="default_value">0.4</span></em>, <em class="sig-param"><span class="n">is_plot_kroupa</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_title</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">is_text</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_met</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_text_cloud_param</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.Sink.plot_imf_one_grid_single_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot one single line of IMF, Kroupa line (optional), set title
-(optional), and add text (optional)
-Parameters</p>
-<dl class="simple">
-<dt>is_text: bool</dt><dd><p>Control if or not to add texts at topleft (gas mass and den) and
-topright corner.</p>
-</dd>
-<dt>is_met: bool</dt><dd><p>Only when is_text = True. Control if or not only add text at
-topright corner.</p>
+<dd><p>Plot one single line of the IMF.</p>
+<p>Plot one single line of the IMF., optionally add a Kroupa line,
+set title, and add text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>is_text</strong> (<em>bool</em>) – Control if or not to add texts at topleft (gas mass and den) and topright corner.</p></li>
+<li><p><strong>is_met</strong> (<em>bool</em>) – Only when is_text = True. Control if or not only add text at topright corner.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -1003,7 +1126,11 @@ The value of mc is missing. Refer to the original paper: Chabrier:2015</p>
 <code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">find_sigma</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logl</span></em>, <em class="sig-param"><span class="n">alpha</span></em>, <em class="sig-param"><span class="n">deltalogl</span><span class="o">=</span><span class="default_value">- 0.5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.find_sigma" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the most probable alpha and 1 sigam region of alpha,
 given the log likelihood logl.</p>
-<p>alpha_max, alpha_minus, alpha_plus</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>alpha_max, alpha_minus, alpha_plus</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1062,6 +1189,15 @@ given the log likelihood logl.</p>
 <dl class="py function">
 <dt id="ramtools.imf.overplot_kroupa_new">
 <code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">overplot_kroupa_new</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">m_sum</span></em>, <em class="sig-param"><span class="n">m_min</span><span class="o">=</span><span class="default_value">0.08</span></em>, <em class="sig-param"><span class="n">m_max</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">textxy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ls</span><span class="o">=</span><span class="default_value">'--'</span></em>, <em class="sig-param"><span class="n">isxloged</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.overplot_kroupa_new" title="Permalink to this definition">¶</a></dt>
+<dd><p>over plot a Kroupa IMF curve. parameters are in log scale
+Normalized to total stellar mass</p>
+<p class="rubric">Notes</p>
+<p>self is useless. I put INTERP here for INTERP to be copied in the Sink class</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ramtools.imf.overplot_kroupa_new2">
+<code class="sig-prename descclassname">ramtools.imf.</code><code class="sig-name descname">overplot_kroupa_new2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">m_sum</span></em>, <em class="sig-param"><span class="n">m_min</span><span class="o">=</span><span class="default_value">0.08</span></em>, <em class="sig-param"><span class="n">m_max</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">textxy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ls</span><span class="o">=</span><span class="default_value">'--'</span></em>, <em class="sig-param"><span class="n">isxloged</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ramtools.imf.overplot_kroupa_new2" title="Permalink to this definition">¶</a></dt>
 <dd><p>over plot a Kroupa IMF curve. parameters are in log scale
 Normalized to total stellar mass</p>
 <p class="rubric">Notes</p>
@@ -1241,19 +1377,15 @@ with negative slopes a1 and a2</p>
 </dd></dl>
 
 </div>
-<div class="section" id="bin-plot-projection">
-<h1>bin plot_projection<a class="headerlink" href="#bin-plot-projection" title="Permalink to this headline">¶</a></h1>
-<p>An executable to quickly and efficiently plot slices/projections of a given RAMSES simulation. This function is extremely useful for a first analysis of a new simulation. For example, you can do <cite>plot_projection ./Job10 all x,y,z -t ./Job10/figures</cite> to make density slice plots along the x, y, and z axis for all outputs of Job10 and store all the figures in Job10/figures. The figures willl be properly named. More examples:</p>
-<p><code class="code docutils literal notranslate"><span class="pre">plot_projection</span> <span class="pre">Job1</span> <span class="pre">all</span> <span class="pre">z</span> <span class="pre">-t</span> <span class="pre">Job1/figures</span></code></p>
-<p><code class="code docutils literal notranslate"><span class="pre">plot_projection</span> <span class="pre">Job2</span> <span class="pre">10-20</span> <span class="pre">x,y,z</span> <span class="pre">-t</span> <span class="pre">Job2/figures</span> <span class="pre">-c</span> <span class="pre">0.6,0.6,0,6</span> <span class="pre">-w</span> <span class="pre">10,pc</span> <span class="pre">-f</span> <span class="pre">den,temp</span> <span class="pre">-k</span> <span class="pre">slc,prj</span></code></p>
-</div>
 <div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+</div>
+</div>
 </div>
 
 
@@ -1269,15 +1401,26 @@ with negative slopes a1 and a2</p>
 <li><a class="reference internal" href="#overview-on-how-to-use-this-module">Overview on How to Use this Module</a></li>
 <li><a class="reference internal" href="#setup-procedure">Setup procedure</a></li>
 <li><a class="reference internal" href="#features-of-ramtools">Features of ramtools</a></li>
-<li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a></li>
-<li><a class="reference internal" href="#module-ramtools.ytfast">ramtools ytfast</a></li>
-<li><a class="reference internal" href="#module-ramtools.ramses">ramtools ramses</a></li>
-<li><a class="reference internal" href="#module-ramtools.ramplot">ramtools ramplot</a></li>
-<li><a class="reference internal" href="#module-ramtools.utilities">ramtools utilities</a></li>
-<li><a class="reference internal" href="#module-ramtools.units">ramtools units</a></li>
-<li><a class="reference internal" href="#module-ramtools.imf">ramtools imf</a></li>
-<li><a class="reference internal" href="#bin-plot-projection">bin plot_projection</a></li>
+<li><a class="reference internal" href="#documentation-for-the-code">Documentation for the Code</a><ul>
+<li><a class="reference internal" href="#executables-in-bin">Executables in bin/</a><ul>
+<li><a class="reference internal" href="#plot-projection">plot_projection</a></li>
+<li><a class="reference internal" href="#plot-imf">plot_imf</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modules">Modules</a><ul>
+<li><a class="reference internal" href="#module-ramtools.ytfast">ytfast</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramsesbase">ramsesbase</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramses">ramses</a></li>
+<li><a class="reference internal" href="#module-ramtools.ramplot">ramplot</a></li>
+<li><a class="reference internal" href="#module-ramtools.utilities">utilities</a></li>
+<li><a class="reference internal" href="#module-ramtools.plotutils">plotutils</a></li>
+<li><a class="reference internal" href="#module-ramtools.units">units</a></li>
+<li><a class="reference internal" href="#module-ramtools.imf">imf</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   <div role="note" aria-label="source link">
