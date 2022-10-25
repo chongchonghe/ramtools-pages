@@ -48,9 +48,128 @@ will make use of the cache stored in the job directory from the first run to
 accelerate the image production process. For a complete documentation, do
 :code:`plot_projection -h`.
 
+::
+
+   usage: plot_projection [-h] [-c CENTER] [-l LOS LOS LOS] [--no-edgeon]
+                       [-w WIDTH] [-f FIELDS] [-t TO] [-k KINDS] [-s]
+                       [--sink-color SINK_COLOR]
+                       [--mass-lim MASS_LIM MASS_LIM] [-o] [--overwrite-cache]
+                       [--hide-axes] [-a] [--scale SCALE]
+                       [--scaleloc SCALELOC] [--no-ytfast]
+                       [--den-zlim DEN_ZLIM DEN_ZLIM] [--T-zlim T_ZLIM T_ZLIM]
+                       [--xHII-zlim XHII_ZLIM XHII_ZLIM] [--dry-run]
+                       [--inzoombox] [--rise RISE] [--t0 T0]
+                       [--time-unit TIME_UNIT] [--darkbg]
+                       [--draw-box DRAW_BOX] [--box-center BOX_CENTER]
+                       [--skip SKIP]
+                       [jobdir] [outs] [axes]
+
+	A program to efficiently make slices/projections plots of a RAMSES simualtion. 
+
+	Quick examples:
+	>>> plot_projection ..
+	>>> plot_projection . 10-20 z -t figures
+	>>> plot_projection . 10-20 x,y -t figures -c 0.6,0.6,0.6 -w 10,pc -f den,temp -k slc --sink --den-zlim 1e4 1e10 --T-zlim 10 1e4
+
+	positional arguments:
+	jobdir                (Default '..') Path to the simulation directory
+	outs                  (Default 'all') Output frames. If 'all', do all output frames. Examples: '10', '10,11,13', '10-20', '10-20-2'
+	axes                  (Default 'x,y,z') The line of sight. Examples: 'x', 'x,y,z'
+
+	optional arguments:
+	-h, --help            show this help message and exit
+	-c CENTER, --center CENTER
+							(Default 'c') The center.
+							Cases:
+								'c': = [0.5, 0.5, 0.5]
+								'peak': the peak density location    x,y,z: position in boxlen unit, e.g. 0.5,0.5,0.5
+								a single integer: use the location of a sink particle with the given index as the center
+	-l LOS LOS LOS, --los LOS LOS LOS
+							The line of sight vector, usually the face-on vector of the disk. When this is set, will plot a face-on and edge view that are perpendicular to each other.
+	--no-edgeon           Turn off plotting edge-on view when los is set
+	-w WIDTH, --width WIDTH
+							The width of the view. Examples: '1', '1000,AU'. Default: '1'
+	-f FIELDS, --fields FIELDS
+							The fields to plot. Examples: 'den', 'den,temp'. Default: 'den'
+	-t TO, --to TO        The destination directory. Default: './projections'
+	-k KINDS, --kinds KINDS
+							Plot types, either 'slc', 'prj', or 'slc,prj' (default)
+	-s, --sink            Turn on overplotting sink particles
+	--sink-color SINK_COLOR
+							Set sink particle color. Default: Greens. Examples: Greens_r, Reds, Reds_r
+	--mass-lim MASS_LIM MASS_LIM
+							Colormap limits (in Msun) of the sink particles
+	-o, --overwrite       Turn on overwritting existing figures. If left off (default), will skip existing files.
+	--overwrite-cache     Turn on overwritting cache files used by ytfast
+	--hide-axes           Toggle hide axes
+	-a, --annotate-scale  Toggle annotate scale
+	--scale SCALE         Coeff and unit of annotate_scale
+	--scaleloc SCALELOC   Location of the scale bar: lower_right (default) orlower_left
+	--no-ytfast           Turn off using ytfast to speedup projection/slice plot
+	--den-zlim DEN_ZLIM DEN_ZLIM
+							zlim of density (in cm-3)
+	--T-zlim T_ZLIM T_ZLIM
+							zlim of temperature (in K)
+	--xHII-zlim XHII_ZLIM XHII_ZLIM
+							zlim of xHII
+	--dry-run             Toggle dry run: making one figure only and store it in local dierctory
+	--inzoombox           with center=integer or center='peak', use sink particles/gas in zoombox only.
+	--rise RISE           raise the slice plot by percent of the box width
+	--t0 T0               set the t0 and annotate time. t0 could be one of the following options: 1. an integer indicating the time of the corresponding output frame; 2. a float indicating the t0 in Myr
+	--time-unit TIME_UNIT
+							time unit, either Myr (default) or kyr
+	--darkbg              Use dark background
+	--draw-box DRAW_BOX   If not None, draw a box with this width
+	--box-center BOX_CENTER
+							define the center of the box to draw, used along with --draw-box. The syntax is similar to center
+	--skip SKIP           skip certain outputs
+
+
 plot_imf
 ^^^^^^^^
 :code:`plot_imf -h`
+
+::
+
+	usage: plot_imf [-h] [-c CENTER] [-w WIDTH] [-t TO]
+					[--mass-lim MASS_LIM [MASS_LIM ...]] [--kroupa]
+					[--kroupa-max KROUPA_MAX] [--kroupa-min KROUPA_MIN] [-o]
+					[--short] [--ylim YLIM YLIM] [--xlim XLIM XLIM] [--inzoombox]
+					[--t0 T0]
+					[jobdir] [outs]
+
+	A program to plot stellar mass functions of a RAMSES simulation. 
+
+	Examples:
+	>>> plot_imf ..
+	>>> plot_imf .. 10-20
+	>>> plot_imf .. 10-20 -c 0.6,0.6,0.6 -w 10,pc
+
+	positional arguments:
+	jobdir                Path to the simulation directory
+	outs                  Output frames. If 'all', do all output frames. Examples: '10', '10,11,13', '10-20'.
+
+	optional arguments:
+	-h, --help            show this help message and exit
+	-c CENTER, --center CENTER
+							The center. Examples: 'c', '0.5,0.5,0.5'. Default: 'c'
+	-w WIDTH, --width WIDTH
+							The width of the view. Examples: '1', '1000,AU'. Default: '1'
+	-t TO, --to TO        The destination directory. Default: '.'
+	--mass-lim MASS_LIM [MASS_LIM ...]
+							Turn on overplotting sink particles
+	--kroupa              Enable overplotting mass-normalized Kroupa IMF
+	--kroupa-max KROUPA_MAX
+							Default: totmass, = sum(sink_masses)
+	--kroupa-min KROUPA_MIN
+							Default: sinkmin, = max(min(sink_masses), 10**-1.25)
+	-o, --overwrite       Toggle overwrite existing figures.
+	--short               Make short figures instead of a square one.
+	--ylim YLIM YLIM      Set ylim.
+	--xlim XLIM XLIM      Set xlim.
+	--inzoombox           with center=integer, use sink particles in zoombox only.
+	--t0 T0               Define t0. If not 'off', will annotate timestamp,and will set t=0 to the t0th frame
+
 
 Modules
 ----------------------------------
